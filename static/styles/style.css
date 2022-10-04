@@ -19,19 +19,19 @@ a {
     justify-content: space-between;
 }
 .header-mobile__userimage {
-    background: url(static/img/icons/header-navbar-mobile/userimage.svg) 0px center / auto no-repeat;
+    background: url(../img/icons/header-navbar-mobile/userimage.svg) 0px center / auto no-repeat;
     height: 30px;
     width: 30px;
     flex-basis: 46%;
 }
 .header-mobile__search {
-    background: url(static/img/icons/header-navbar-mobile/search.svg) 0px center / auto no-repeat;
+    background: url(../img/icons/header-navbar-mobile/search.svg) 0px center / auto no-repeat;
     height: 15px;
     width: 15px;
     flex-basis: 12%;
 }
 .header-mobile__notification {
-    background: url(static/img/icons/header-navbar-mobile/notification.svg) 0px center / auto no-repeat;
+    background: url(../img/icons/header-navbar-mobile/notification.svg) 0px center / auto no-repeat;
     height: 16px;
     width: 16px;
     flex-basis: 14.3%;
@@ -46,7 +46,7 @@ a {
     white-space: nowrap;
 }
 .maketask-button__icon {
-    background: url(static/img/icons/header-navbar-mobile/maketusk.svg) 0px center / auto no-repeat;
+    background: url(../img/icons/header-navbar-mobile/maketusk.svg) 0px center / auto no-repeat;
     height: 15px;
     width: 15px;
 }
@@ -66,22 +66,22 @@ a {
     margin-bottom: 10px;
 }
 .bottom-navbar-mobile__btn-home {
-    background: url(static/img/icons/bottom-navbar-mobile/home.svg) center / auto no-repeat;
+    background: url(../img/icons/bottom-navbar-mobile/home.svg) center / auto no-repeat;
     height: 30px;
     width: 27px;
 }
 .bottom-navbar-mobile__btn-task {
-    background: url(static/img/icons/bottom-navbar-mobile/task.svg) center / auto no-repeat;
+    background: url(../img/icons/bottom-navbar-mobile/task.svg) center / auto no-repeat;
     height: 30px;
     width: 21px;
 }
 .bottom-navbar-mobile__btn-share {
-    background: url(static/img/icons/bottom-navbar-mobile/share.svg) center / auto no-repeat;
+    background: url(../img/icons/bottom-navbar-mobile/share.svg) center / auto no-repeat;
     height: 30px;
     width: 21px;
 }
 .bottom-navbar-mobile__btn-calendar {
-    background: url(static/img/icons/bottom-navbar-mobile/calendar.svg) center / auto no-repeat;
+    background: url(../img/icons/bottom-navbar-mobile/calendar.svg) center / auto no-repeat;
     height: 30px;
     width: 23px;
 }
