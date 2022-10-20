@@ -9,7 +9,7 @@ config_env = dotenv_values(path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = config_env.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config_env.get('DEBUG', True)
 
 ALLOWED_HOSTS = config_env.get('ALLOWED_HOSTS', 'localhost').split()
 
