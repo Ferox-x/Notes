@@ -9,7 +9,7 @@ config_env = dotenv_values(path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = config_env.get('SECRET_KEY')
 
-DEBUG = config_env.get('DEBUG', True)
+DEBUG = int(config_env.get('DEBUG', True))
 
 ALLOWED_HOSTS = config_env.get('ALLOWED_HOSTS', 'localhost').split()
 
@@ -23,6 +23,9 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'rest_framework',
+    'phonenumber_field',
+
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +97,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = [path.join(BASE_DIR.parent, 'static')]
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -104,3 +108,9 @@ MEDIA_ROOT = path.join(BASE_DIR.parent, 'media')
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'users.Users'
+
+ADMIN_EMAIL = config_env.get('ADMIN_EMAIL')
