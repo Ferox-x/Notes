@@ -32,9 +32,6 @@ class UserLoginForm(AuthenticationForm):
         model = User
         fields = ['username', 'password']
 
-    def __init__(self, *args, **kwargs):
-        super(UserLoginForm, self).__init__(*args, **kwargs)
-
 
 class UserPasswordChangeForm(PasswordChangeForm):
     """Форма смены пароля."""
