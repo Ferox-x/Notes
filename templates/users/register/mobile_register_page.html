@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/styles/normalize.css">
-	<link rel="stylesheet" href="../static/styles/style.css">
-	<title>Login</title>
+	<link rel="stylesheet" href="{% static 'styles/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+	<title>Register</title>
 </head>
 <body>
 <main class="container">
@@ -16,13 +17,16 @@
 		</section>
 		<form method="post">
 			<div class="user-form__form">
-				<input class="user-form__input-text" type="text" name="name"
+        {% csrf_token %}
+				<input class="user-form__input-text" type="text" name="username"
 				       placeholder="Имя">
-				<input class="user-form__input-text" type="tel" name="phone-number"
+				<input class="user-form__input-text" type="tel" name="phone_number"
 				       placeholder="Номер телефона">
-				<input class="user-form__input-text" type="email" name="login"
+				<input class="user-form__input-text" type="email" name="email"
 				       placeholder="Почта">
-				<input class="user-form__input-text" type="password" name="password"
+				<input class="user-form__input-text" type="password" name="password1"
+				       placeholder="Пароль">
+        <input class="user-form__input-text" type="password" name="password2"
 				       placeholder="Пароль">
 
 				<button class="user-form__button" type="submit">Зарегистрироваться
