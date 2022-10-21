@@ -1,8 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+/* fonts */
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('fonts/Roboto-Bold.eot');
+    src: local('Roboto Bold'), local('Roboto-Bold'),
+        url('fonts/RobotoBold.woff2') format('woff2'),
+        url('fonts/Roboto-Bold.woff') format('woff');
+
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Regular.eot');
+    src: local('Roboto'), local('Roboto-Regular'),
+        url('fonts/RobotoRegular.woff2') format('woff2'),
+        url('Roboto-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+/*end fonts*/
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 a {
     text-decoration: none;
@@ -89,19 +115,19 @@ a {
 
 /* container */
 .container {
-    margin: 0 20px 0 20px
+    margin: 0 20px;
+
 }
 /* end-container */
 
 /* page-title */
 .page-title {
-    height: 100px;
     display: flex;
 }
 .page-title__text {
+    font-family: 'Roboto Bold', sans-serif;
     margin: auto 0;
-    font-weight: 700;
-    font-size: 30px;
+    font-size: 23px;
 }
 /* end-page-title */
 
@@ -128,3 +154,67 @@ a {
     margin: auto;
 }
 /* end-empty-content-block */
+
+/* login-page styles */
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+    
+}
+.page-title-login{
+   padding-top: 60px;
+   margin-bottom: 97px;
+
+}
+.user-form__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 184px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+}
+
+.user-form__input-text {
+    width: 256px;
+    margin-bottom: 11px;
+    padding:7px 12px;
+    border:0;
+    border-bottom: 1px solid rgb(67, 41, 170);
+    font-size: 10px;
+    opacity: 0.3;
+}
+.user-form__input-text:last-of-type{
+    margin-bottom: 75px;
+}
+.user-form__button {
+    padding: 12px;
+    width: 174px;
+    border: 0;
+    align-self: center;
+    background: #4329AA;
+    border-radius: 20px;
+    color:#FFFFFF;
+    font-size: 12px;
+}
+.user-form__link {
+    font-size: 10px;
+    color: #000000;
+    opacity: 0.5;
+    margin-bottom: 18px;
+    text-decoration: underline;
+}
+
+/* end login-page styles end */
+
+/* register-page styles */
+
+.page-title-register{
+    padding-top: 60px;
+   margin-bottom: 40px;
+}
