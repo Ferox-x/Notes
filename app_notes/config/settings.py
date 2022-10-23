@@ -111,6 +111,6 @@ INTERNAL_IPS = [
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = '/'
-AUTH_USER_MODEL = 'users.Users'
+AUTH_USER_MODEL = 'users.User'
 
 ADMIN_EMAIL = config_env.get('ADMIN_EMAIL')

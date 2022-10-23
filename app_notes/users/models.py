@@ -43,7 +43,7 @@ class MyUserManager(BaseUserManager):
         return user
 
 
-class Users(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     """Кастомная модель пользователя."""
     username = models.CharField(
         unique=True,
