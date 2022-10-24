@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'users',
+    'notes',
+    'teams',
 ]
 
 MIDDLEWARE = [
