@@ -1,11 +1,7 @@
 # .github/workflows/**notes_workflows.yml**
 name: Notes-app workflow
 
-on:
-  push: 
-    branches: [ main ] 
-  push:
-    branches: [ dev ]
+on: [push]
 
 jobs:
   tests:
