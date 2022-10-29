@@ -3,7 +3,7 @@ name: Notes-app workflow
 
 on:
   push: 
-    branches: [ master ] 
+    branches: [ main ] 
   push:
     branches: [ dev ]
 
