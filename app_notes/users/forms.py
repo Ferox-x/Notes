@@ -1,10 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import (
-    AuthenticationForm,
-    PasswordChangeForm,
-    UserCreationForm,
-)
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import (AuthenticationForm, PasswordChangeForm,
+                                       UserCreationForm)
 from phonenumber_field.formfields import PhoneNumberField
 
 User = get_user_model()
@@ -41,9 +38,12 @@ class UserPasswordChangeForm(PasswordChangeForm):
 
     def __init__(self, *args, **kwargs):
         super(UserPasswordChangeForm, self).__init__(*args, **kwargs)
-        self.fields['old_password'].widget.attrs['placeholder'] = 'old password'
-        self.fields['new_password1'].widget.attrs['placeholder'] = 'new password'
-        self.fields['new_password2'].widget.attrs['placeholder'] = 'repeat new password'
+        (self.fields['old_password']
+            .widget.attrs['placeholder']) = 'old password'
+        (self.fields['new_password1']
+            .widget.attrs['placeholder']) = 'new password'
+        (self.fields['new_password2']
+            .widget.attrs['placeholder']) = 'repeat new password'
 
 
 # class ProfileDataForm(forms.ModelForm):
@@ -54,11 +54,16 @@ class UserPasswordChangeForm(PasswordChangeForm):
 #
 #     def __init__(self, *args, **kwargs):
 #         super(ProfileDataForm, self).__init__(*args, **kwargs)
-#         self.fields['username'].widget.attrs['class'] = 'profile_info_username display'
-#         self.fields['description'].widget.attrs['class'] = 'profile_info_description display'
-#         self.fields['full_name'].widget.attrs['class'] = 'profile_addinfo_right display'
-#         self.fields['email'].widget.attrs['class'] = 'profile_addinfo_right display'
-#         self.fields['country'].widget.attrs['class'] = 'profile_addinfo_right display'
+#         (self.fields['username']
+#             .widget.attrs['class']) = 'profile_info_username display'
+#         (self.fields['description']
+#             .widget.attrs['class']) = 'profile_info_description display'
+#         (self.fields['full_name']
+#             .widget.attrs['class']) = 'profile_addinfo_right display'
+#         (self.fields['email']
+#             .widget.attrs['class']) = 'profile_addinfo_right display'
+#         (self.fields['country']
+#             .widget.attrs['class']) = 'profile_addinfo_right display'
 
 
 class ProfileImageForm(forms.ModelForm):

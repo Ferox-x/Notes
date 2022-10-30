@@ -1,17 +1,35 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
 from users.models import User
 
 
 class Note(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, editable=False, verbose_name=_('Created'))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_('Updated'))
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        editable=False,
+        verbose_name=_('Created')
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name=_('Updated')
+    )
     deadline = models.DateTimeField(verbose_name=_('Deadline'))
-    type = models.ForeignKey('NoteType', on_delete=models.SET_NULL, verbose_name=_('Type'))
+    type = models.ForeignKey(
+        'NoteType',
+        on_delete=models.SET_NULL,
+        verbose_name=_('Type')
+    )
     data = models.JSONField(verbose_name=_('Data'))
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name=_('User'))
-    status = models.ForeignKey('NoteStatus', on_delete=models.SET_NULL, verbose_name=_('Status'))
+    user_id = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        verbose_name=_('User')
+    )
+    status = models.ForeignKey(
+        'NoteStatus',
+        on_delete=models.SET_NULL,
+        verbose_name=_('Status')
+    )
 
     class Meta:
         db_table = 'notes'

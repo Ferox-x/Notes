@@ -1,29 +1,14 @@
-from django.views import View
 from django.conf import settings
-from django.urls import reverse_lazy
-from django.shortcuts import redirect, render
-from django.views.generic import CreateView, DetailView
+from django.contrib.auth import authenticate, get_user_model, login
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import (
-    PasswordChangeView,
-    PasswordResetView,
-    LoginView,
-)
+from django.contrib.auth.views import (LoginView, PasswordChangeView,
+                                       PasswordResetView)
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-from django.contrib.auth import (
-    authenticate, login,
-    logout as auth_logout,
-    get_user_model
-)
-
-from .forms import (
-    UserLoginForm,
-    UserSignupForm,
-    UserPasswordChangeForm,
-    ProfileImageForm
-)
-
-# from services.user_services import Profile
+from .forms import UserLoginForm, UserPasswordChangeForm, UserSignupForm
 
 User = get_user_model()
 
@@ -42,13 +27,12 @@ class CustomSignupView(CreateView):
     success_url = reverse_lazy('/')
 
     def form_valid(self, form):
-        to_return = super().form_valid(form)
         user = authenticate(
             username=form.cleaned_data["username"],
             password=form.cleaned_data["password1"],
         )
         login(self.request, user)
-        return to_return
+        return super().form_valid(form)
 
 
 class CustomLoginView(LoginView):
@@ -72,7 +56,8 @@ class CustomPasswordResetView(PasswordResetView):
 
 # class ProfileView(View):
 #     """
-#     Представление отображение профиля, смены данных и изображение пользователя.
+#     Представление отображение профиля,
+#     смены данных и изображение пользователя.
 #
 #     """
 #     def get(self, request):

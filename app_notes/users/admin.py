@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.models import Group
 
-from .models import Users
+from .models import User
 
 
 class UserCreationForm(forms.ModelForm):
@@ -19,7 +19,7 @@ class UserCreationForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Users
+        model = User
         fields = ('username',)
 
     def clean_password2(self):
@@ -44,7 +44,7 @@ class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
-        model = Users
+        model = User
         fields = ('username',)
 
     def clean_password(self):
@@ -81,5 +81,5 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
-admin.site.register(Users, UserAdmin)
+admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
