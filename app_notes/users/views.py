@@ -1,3 +1,5 @@
+import logging
+
 from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model, login
 from django.contrib.auth import logout as auth_logout
@@ -11,6 +13,7 @@ from django.views.generic import CreateView
 from .forms import UserLoginForm, UserPasswordChangeForm, UserSignupForm
 
 User = get_user_model()
+logger = logging.getLogger('django')
 
 
 @login_required()
@@ -37,6 +40,7 @@ class CustomSignupView(CreateView):
 
 class CustomLoginView(LoginView):
     """Представление входа."""
+    logger.info('test')  # remove after start using
     form_class = UserLoginForm
     success_url = reverse_lazy('/')
 
