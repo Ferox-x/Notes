@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/styles/normalize.css">
+  <link rel="stylesheet" href="../static/styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+<header>
+  <div class="header-mobile">
+    <div class="header-mobile__wrap">
+      <div class="header-mobile__box">
+        <a href="#" class="header-mobile__userimage"></a>
+        <a href="#" class="header-mobile__search"></a>
+        <a href="#" class="header-mobile__notification"></a>
+        <div class="maketask-button">
+          <a href="#" class="maketask-button__label">
+            <p class="maketask-button__text">Создать задачу</p>
+            <div class="maketask-button__icon"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="personal-task">
+    <div class="personal-task__top">
+      <div class="personal-task__title">Личная задача</div>
+      <div class="personal-task__button-back">
+        <img class="personal-task__button-back-img" src="../static/img/icons/personal_task/Vector.svg">
+      </div>
+    </div>
+    <div class="personal-task__create">
+      <div class="personal-task__create-task">
+        <input class="personal-task__create-topic" type="text"
+               placeholder="Тема задачи" id="personal_task_topic">
+        <input
+          class="personal-task__create-topic personal-task__create-description"
+          placeholder="Описание" id="personal_task_description">
+      </div>
+      <div class="personal-task__add">
+        <div class="personal-task__add-info">
+          <div class="personal-task__all-info-plus">+</div>
+          <div class="personal-task__all-info personal-task__all-info-plus">
+            Добавить дедлайн
+          </div>
+        </div>
+        <div class="personal-task__add-info">
+          <div class="personal-task__all-info-plus">+</div>
+          <div class="personal-task__all-info personal-task__all-info-plus">
+            Добавить вложение
+          </div>
+        </div>
+      </div>
+      <div class="profile__edit-btn personal-task__btn">Готово</div>
+    </div>
+  </div>
+  </div>
+</main>
+
+
+<nav class="bottom-navbar-mobile">
+  <a href="#" class="bottom-navbar-mobile__btn-home"></a>
+  <a href="#" class="bottom-navbar-mobile__btn-task"></a>
+  <a href="#" class="bottom-navbar-mobile__btn-share"></a>
+  <a href="#" class="bottom-navbar-mobile__btn-calendar"></a>
+</nav>
+</body>
+</html>
