@@ -64,15 +64,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'DB_ENGINE': config_env.get(
+        'ENGINE': config_env.get(
             'DB_ENGINE',
             'django.db.backends.postgresql_psycopg2'
         ),
-        'NAME_DB': config_env.get('NAME_DB', 'postgres'),
-        'USER_DB': config_env.get('USER_DB', 'postgres'),
-        'PASSWORD_DB': config_env.get('PASSWORD_DB', 'postgres'),
-        'HOST_DB': config_env.get('HOST_DB', 'localhost'),
-        'PORT_DB': config_env.get('PORT_DB', '5432'),
+        'NAME': config_env.get('DB_NAME', 'postgres'),
+        'USER': config_env.get('POSTGRES_USER', 'postgres'),
+        'PASSWORD': config_env.get('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': config_env.get('DB_HOST', 'localhost'),
+        'PORT': config_env.get('DB_PORT', '5432'),
     }
 }
 
