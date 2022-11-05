@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'users',
-    'frontend_django',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -136,7 +136,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = [path.join(BASE_DIR, 'static')]
+DJANGO_STATIC_DIR = path.join(BASE_DIR, 'static')
+REACT_STATIC_DIR = 1
+
+STATICFILES_DIRS = [DJANGO_STATIC_DIR, ]
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
