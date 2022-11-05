@@ -5,13 +5,13 @@ from dotenv import dotenv_values
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-config_env = dotenv_values(path.join(BASE_DIR, '.env'))
+config_env = dotenv_values(path.join(BASE_DIR.parent, 'docker', '.env'))
 
-SECRET_KEY = config_env.get('SECRET_KEY', default='secret_key')
+SECRET_KEY = config_env.get('SECRET_KEY', 'secret_key')
 
 DEBUG = int(config_env.get('DEBUG', False))
 
-ALLOWED_HOSTS = config_env.get('ALLOWED_HOSTS', default='localhost').split()
+ALLOWED_HOSTS = config_env.get('ALLOWED_HOSTS', 'localhost').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -64,15 +64,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config_env.get(
+        'DB_ENGINE': config_env.get(
             'DB_ENGINE',
-            default='django.db.backends.postgresql_psycopg2'
+            'django.db.backends.postgresql_psycopg2'
         ),
-        'NAME': config_env.get('NAME_DB', default='postgres'),
-        'USER': config_env.get('USER_DB', default='postgres'),
-        'PASSWORD': config_env.get('PASSWORD_DB', default='postgres'),
-        'HOST': config_env.get('HOST_DB', default='localhost'),
-        'PORT': config_env.get('PORT_DB', default='5432'),
+        'NAME_DB': config_env.get('NAME_DB', 'postgres'),
+        'USER_DB': config_env.get('USER_DB', 'postgres'),
+        'PASSWORD_DB': config_env.get('PASSWORD_DB', 'postgres'),
+        'HOST_DB': config_env.get('HOST_DB', 'localhost'),
+        'PORT_DB': config_env.get('PORT_DB', '5432'),
     }
 }
 
