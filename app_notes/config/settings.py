@@ -5,11 +5,11 @@ from dotenv import dotenv_values
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-config_env = dotenv_values(path.join(BASE_DIR, '.env'))
+config_env = dotenv_values(path.join(BASE_DIR.parent, 'docker', '.env'))
 
-SECRET_KEY = config_env.get('SECRET_KEY')
+SECRET_KEY = config_env.get('SECRET_KEY', 'secret_key')
 
-DEBUG = int(config_env.get('DEBUG', True))
+DEBUG = int(config_env.get('DEBUG', False))
 
 ALLOWED_HOSTS = config_env.get('ALLOWED_HOSTS', 'localhost').split()
 
@@ -42,7 +42,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-TEMPLATES_DIR = path.join(BASE_DIR.parent, 'templates')
+TEMPLATES_DIR = path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
     {
@@ -64,12 +64,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config_env.get('NAME_DB'),
-        'USER': config_env.get('USER_DB'),
-        'PASSWORD': config_env.get('PASSWORD_DB'),
-        'HOST': config_env.get('HOST_DB'),
-        'PORT': config_env.get('PORT_DB'),
+        'ENGINE': config_env.get(
+            'DB_ENGINE',
+            'django.db.backends.postgresql_psycopg2'
+        ),
+        'NAME': config_env.get('DB_NAME', 'postgres'),
+        'USER': config_env.get('POSTGRES_USER', 'postgres'),
+        'PASSWORD': config_env.get('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': config_env.get('DB_HOST', 'localhost'),
+        'PORT': config_env.get('DB_PORT', '5432'),
     }
 }
 
@@ -132,13 +135,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = [path.join(BASE_DIR.parent, 'static')]
+STATICFILES_DIRS = [path.join(BASE_DIR, 'static')]
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = path.join(BASE_DIR.parent, 'media')
+MEDIA_ROOT = path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = [
     '127.0.0.1',
