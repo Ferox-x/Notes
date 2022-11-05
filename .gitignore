@@ -131,7 +131,5 @@ dmypy.json
 .idea
 /docker/.env
 .logs.log
-/docker/.env
-/docker/.env
 
 node_modules
