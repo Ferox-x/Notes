@@ -19,6 +19,6 @@ COPY app_notes/ .
 
 RUN pip install --no-cache /srv/www/wheels/*
 
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0:8000" ]
+#CMD ["gunicorn", "config.wsgi:application", "--bind", "0:8000" ]
 
 LABEL author='@anywindblows, @ferox-x' version='1.0'
