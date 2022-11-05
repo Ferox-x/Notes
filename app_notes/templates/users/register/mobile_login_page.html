@@ -11,21 +11,28 @@
 </head>
 <body>
 <main class="container">
-  <div class="user-form">
-    <section class="page-title-login">
-      <p class="page-title__text">Войти</p>
-    </section>
-    <form method="post">
-      {% csrf_token %}
-      <div class="user-form__form">
-        <input class="user-form__input-text" type="text" name="username"
-               placeholder="Логин">
-        <input class="user-form__input-text" type="password" name="password"
-               placeholder="Пароль">
-        <button class="user-form__button" type="submit">Войти</button>
+  <div class="login-page">
+    <div class="login-content">
+      <div class="page-title-login">
+        <p class="page-title-login__text">Войти</p>
+        <p class="error-text non-visible-text">Неверный пароль или аккаунт не найден<br>Попробуйте ещё раз</p>
       </div>
-    </form>
-    <a href="#" class="user-form__link">Уже есть аккаунт?</a>
+
+      <form method="post" class="login-form">
+        {% csrf_token %}
+        <div id="login_form" class="user-form">
+          <input class="user-form__input-text" type="text" name="username"
+                placeholder="Логин">
+          <input class="user-form__input-text" type="password" name="password"
+                placeholder="Пароль">
+        </div>
+      </form>
+      <div class="login-content__actions">
+        <button class="submit-button submit-button__login-margin" form="login_form" type="submit">Войти</button>
+        <a href="#" class="link">Регистрация</a>
+        <a href="#" class="link">Забыли пароль?</a>
+      </div>
+    </div>
   </div>
 </main>
 </body>
