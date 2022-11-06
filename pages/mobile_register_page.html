@@ -10,31 +10,34 @@
 	<title>Register</title>
 </head>
 <body>
-<main class="container">
-	<div class="user-form">
-		<section class="page-title-register">
-			<p class="page-title__text">Регистрация</p>
-		</section>
-		<form method="post">
-			<div class="user-form__form">
-        
-				<input class="user-form__input-text" type="text" name="username"
-				       placeholder="Имя">
-				<input class="user-form__input-text" type="tel" name="phone_number"
-				       placeholder="Номер телефона">
-				<input class="user-form__input-text" type="email" name="email"
-				       placeholder="Почта">
-				<input class="user-form__input-text" type="password" name="password1"
-				       placeholder="Пароль">
-        <input class="user-form__input-text" type="password" name="password2"
-				       placeholder="Пароль">
+  <main class="container">
+    <div class="login-page">
+      <div class="login-content">
+      <section class="page-title-login">
+        <p class="page-title-login__text">Регистрация</p>
+      </section>
+      <form method="post" class="login-form">
+        <div class="user-form">
 
-				<button class="submit-button" type="submit">Зарегистрироваться
-				</button>
-			</div>
-		</form>
-		<a href="#" class="user-form__link">Уже есть аккаунт?</a>
-	</div>
-</main>
+          <input class="user-form__input-text" type="text" name="username"
+                 placeholder="Имя">
+          <input class="user-form__input-text" type="tel" name="phone_number"
+                 placeholder="Номер телефона">
+          <input class="user-form__input-text" type="email" name="email"
+                 placeholder="Почта">
+          <input class="user-form__input-text" type="password" name="password1"
+                 placeholder="Пароль">
+          <input class="user-form__input-text" type="password" name="password2"
+                 placeholder="Пароль">
+  
+          
+        </div>
+      </form>
+      <button class="submit-button" type="submit">Зарегистрироваться
+      </button>
+      <a href="#" class="link">Забыли пароль?</a>
+    </div>
+    </div>
+  </main>
 </body>
 </html>
