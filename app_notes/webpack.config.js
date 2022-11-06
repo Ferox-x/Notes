@@ -17,6 +17,11 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".jsx", ".css"]
+    },
+    watch: true,
+    watchOptions: {
+        ignored: ["node_modules"]
     }
+
 };
 
