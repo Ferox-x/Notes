@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Header from "./layouts/header/header";
+import Header from "layouts/header/header";
 
 class App extends Component {
     render() {
@@ -12,4 +12,5 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('root'));
+
