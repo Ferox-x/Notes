@@ -44,16 +44,27 @@
     </div>
 
     <div class="profile-bottom">
-      <div class="profile-button">
-        <div class="profile-button__settings profile-button__arrow">Настройки
+      <div class="profile-bottom__center">
+        <form class="profile__edit">
+          <input class="profile__data-user" type="text" id="firstname"
+                 placeholder="Имя">
+          <input class="profile__data-user" type="tel" id="telephone"
+                 placeholder="Номер телефона">
+          <input class="profile__data-user" type="email" id="email"
+                 placeholder="Почта">
+          <input class="profile__data-user" type="pin" id="password"
+                 placeholder="Пароль">
+        </form>
+
+        <div class="profile__edit-buttons">
+          <div class="profile__edit-btn">Редактировать</div>
+          <div class="profile__edit-btn profile__edit-back">Отмена</div>
         </div>
-        <div class="profile-button__settings profile-button__arrow">Тема</div>
-        <div class="profile-button__settings profile-button__arrow">О нас</div>
-        <div class="profile-button__settings profile-button__arrow">Выйти</div>
       </div>
     </div>
   </div>
   <main/>
+
   <nav class="bottom-navbar-mobile">
     <a href="#" class="bottom-navbar-mobile__btn-home"></a>
     <a href="#" class="bottom-navbar-mobile__btn-task"></a>
