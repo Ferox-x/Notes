@@ -1,10 +1,4 @@
-import css from "file.css";
-
 module.exports = {
-    entry: './index.jsx',
-    output: {
-        filename: 'bundle.js'
-    },
     module: {
         rules: [
             {
@@ -15,9 +9,9 @@ module.exports = {
                 }
             },
             {
-                test: /.css$/i,
+                test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
-            },
+            }
         ]
     },
     resolve: {
