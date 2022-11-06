@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Header from "./layouts/header/header";
 
 class App extends Component {
     render() {
-        return <h1>TEST REACT</h1>
+        return (
+            <div className={'app-wrapper'}>
+                <Header/>
+            </div>
+        )
     }
 }
 
