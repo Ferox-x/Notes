@@ -43,6 +43,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+DJANGO_STATIC_DIR = path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [DJANGO_STATIC_DIR, ]
+STATIC_URL = 'static/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = path.join(BASE_DIR, 'media')
+
 TEMPLATES_DIR = path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
@@ -135,17 +145,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-DJANGO_STATIC_DIR = path.join(BASE_DIR, 'static')
-REACT_STATIC_DIR = 1
-
-STATICFILES_DIRS = [DJANGO_STATIC_DIR, ]
-STATIC_URL = 'static/'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = [
     '127.0.0.1',
