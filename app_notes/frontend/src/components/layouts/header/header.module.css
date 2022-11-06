@@ -27,18 +27,18 @@
   flex-basis: 14.3%;
 }
 
-.maketask-button__label {
+.maketask_button__label {
   display: flex;
 }
 
-.maketask-button__text {
+.maketask_button__text {
   color: #4329AA;
   font-size: 12px;
   margin-right: 5px;
   white-space: nowrap;
 }
 
-.maketask-button__icon {
+.maketask_button__icon {
   background: url(../../../../static/img/icons/header-navbar-mobile/maketusk.svg) 0px center / auto no-repeat;
   height: 15px;
   width: 15px;

@@ -1,5 +1,5 @@
 import {Component} from "react";
-import './header.module.css';
+import header_styles from './header.module.css';
 
 
 class Header extends Component {
@@ -14,11 +14,11 @@ class Header extends Component {
             <a href="#"
                className="header-mobile__notification"></a>
             <div className="maketask-button">
-              <a href="#" className="maketask-button__label">
-                <p className="maketask-button__text">Создать
+              <a href="#" className={header_styles.maketask_button__label}>
+                <p className={header_styles.maketask_button__text}>Создать
                   задачу</p>
                 <div
-                  className="maketask-button__icon"></div>
+                  className={header_styles.maketask_button__icon}></div>
               </a>
             </div>
           </div>
