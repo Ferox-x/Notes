@@ -23,10 +23,10 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'rest_framework',
+    'corsheaders',
     'phonenumber_field',
 
-    'users',
-    'frontend',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -37,6 +37,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 
     'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
@@ -155,3 +156,9 @@ LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'users.User'
 
 ADMIN_EMAIL = config_env.get('ADMIN_EMAIL')
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+       'http://localhost:3000',
+)
