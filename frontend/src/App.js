@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import Header from "./layouts/header/header";
-import Footer from "./layouts/footer/footer";
+import Header from "./components/layouts/header/header";
 import './App.css'
-import MainPage from "./layouts/main_page/main_page";
 
 
 class App extends Component {
@@ -11,11 +8,7 @@ class App extends Component {
         return (
             <div className={'container'}>
                 <Header />
-                <MainPage/>
-                <Footer />
             </div>
-
-
         )
     }
 }
