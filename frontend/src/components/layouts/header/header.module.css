@@ -7,7 +7,7 @@
 }
 
 .header-mobile__userimage {
-  background: url(../../../../static/img/icons/header-navbar-mobile/userimage.svg) 0px center / auto no-repeat;
+  background: url(./../../../../static/img/icons/header-navbar-mobile/userimage.svg) 0px center / auto no-repeat;
   height: 30px;
   width: 30px;
   flex-basis: 46%;
