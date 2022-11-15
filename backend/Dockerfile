@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 COPY requirements_prod.txt .
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /srv/www/app_notes/wheels -r requirements_prod.txt
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /srv/www/backend/wheels -r requirements_prod.txt
 
 
 FROM python:3.11.0-slim

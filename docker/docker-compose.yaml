@@ -22,9 +22,9 @@ services:
       - postgres
 
   web:
-#    image: anywindblows/app_notes:latest
+#    image: anywindblows/backend:latest
     build:
-      context: ../app_notes/
+      context: ../backend/
       dockerfile: Dockerfile
     restart: always
     container_name: web
@@ -34,8 +34,8 @@ services:
       - "8000:8000"
     command: "gunicorn config.wsgi:application --bind 0:8000"
     volumes:
-      - logs_value:/srv/www/app_notes/logs
-      - static_value:/var/html/app_notes/static/
+      - logs_value:/srv/www/backend/logs
+      - static_value:/var/html/backend/static/
       - media_value:/var/html/media/
     depends_on:
       - pgbouncer
@@ -48,7 +48,7 @@ services:
       - "80:8080"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - logs_value:/srv/www/app_notes/logs
+      - logs_value:/srv/www/backend/logs
       - static_value:/var/html/static/
       - media_value:/var/html/media/
     depends_on:
