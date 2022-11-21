@@ -8,7 +8,7 @@ from .models import User
 
 
 class UserCreationForm(forms.ModelForm):
-    """Форма для создания нового пользователя через панель администратора."""
+    """Form for creating a new user using admin panel."""
     password1 = forms.CharField(
         label='Password',
         widget=forms.PasswordInput
@@ -23,7 +23,7 @@ class UserCreationForm(forms.ModelForm):
         fields = ('username',)
 
     def clean_password2(self):
-        """Валидация пароля."""
+        """Password validation."""
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
         if password1 and password2 and password1 != password2:
@@ -31,7 +31,7 @@ class UserCreationForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-        """Сохранение пользователя."""
+        """Save password."""
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data['password1'])
         if commit:
@@ -40,8 +40,16 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
-    """Форма изменения пароля."""
-    password = ReadOnlyPasswordHashField()
+    """Form for change user password using admin panel."""
+    password = ReadOnlyPasswordHashField(
+        label="Password",
+        help_text=(
+            'Raw passwords are not stored, '
+            'so there is no way to see this user’s password, '
+            'but you can change the password using '
+            '<a href=\"../password/\">this form</a>.'
+        )
+    )
 
     class Meta:
         model = User
@@ -52,32 +60,31 @@ class UserChangeForm(forms.ModelForm):
 
 
 class UserAdmin(BaseUserAdmin):
-    """Админ панель пользователя."""
+    """
+    User admin panel.
+    With custom filter params.
+    """
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('username', 'is_admin')
-    list_filter = ('is_admin',)
-    fieldsets = (
-        ('Personal info', {
-            'fields': (
-                'username', 'email', 'name', 'phone_number',
-                'is_admin', 'is_superuser', 'is_active',
-            )
-        }),
+    list_display = ('email', 'username')
+    list_filter = ('is_superuser', 'is_staff', 'is_active')
+    fieldsets = (('Personal info', {
+        'fields': (
+            'username', 'email', 'name', 'phone_number',
+            'password', 'is_superuser', 'is_staff', 'is_active',
+        )}),
     )
 
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': (
-                'username', 'email', 'name', 'phone_number',
-                'is_admin', 'is_superuser', 'is_active',
-            )}
-         ),
+    add_fieldsets = ((None, {
+        'classes': ('wide',),
+        'fields': (
+            'username', 'email', 'name', 'phone_number',
+            'password1', 'password2', 'is_superuser', 'is_active',
+        )}),
     )
-    search_fields = ('username',)
-    ordering = ('username',)
+    search_fields = ('email', 'username')
+    ordering = ('-username',)
     filter_horizontal = ()
 
 
