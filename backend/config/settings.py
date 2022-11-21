@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 from os import path
 from pathlib import Path
 
@@ -22,12 +23,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'debug_toolbar',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'corsheaders',
     'phonenumber_field',
+    'drf_spectacular',
 
-    'users'
+    'users',
+
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +136,6 @@ LOGGING = {
     },
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -146,6 +150,36 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+DJOSER = {
+    'SERIALIZERS': {
+        'current_user': 'api.v1.serializers.CustomUserSerializer',
+        'user': 'api.v1.serializers.CustomUserSerializer',
+        'user_list': 'api.v1.serializers.CustomUserSerializer',
+    },
+    'PERMISSIONS': {
+        'user': ['rest_framework.permissions.IsAuthenticated'],
+        'user_list': ['rest_framework.permissions.IsAdminUser'],
+    },
+    'HIDE_USERS': False
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Make Your Day API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
 
 LANGUAGE_CODE = 'en-us'
 

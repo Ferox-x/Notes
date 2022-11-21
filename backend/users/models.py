@@ -43,7 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     """
     Stores a single custom user entry.
     Required fields:
-    - email, username, name.
+    - email, username, phone_number, name.
     """
     username = models.CharField(
         unique=True,
@@ -56,16 +56,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     name = models.CharField(
         max_length=150,
-        verbose_name=_('Name'),
-        null=True
+        verbose_name=_('Full Name'),
     )
     phone_number = PhoneNumberField(
-        null=True,
-        unique=True
+        unique=True,
+        verbose_name=_('Phone number')
     )
     image = models.ImageField(          # TODO: make base64 field format.
         upload_to='user_images',
-        default='default.png'
+        default='default.png',
+        verbose_name=_('Profile image')
     )
 
     is_active = models.BooleanField(
@@ -83,7 +83,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'name']
+    REQUIRED_FIELDS = ['email', 'name', 'phone_number']
 
     @property
     def is_admin(self) -> bool:
