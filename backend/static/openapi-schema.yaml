@@ -2,14 +2,23 @@ openapi: 3.0.3
 info:
   title: Make Your Day API
   version: 1.0.0
-  description: Your project description
+  description: |
+    запросы к API начинаются с `/api/v1/`
+    
+    # Алгоритм регистрации пользователей
+    1. Пользователь отправляет POST-запрос на добавление нового пользователя с параметрами `email`, `phone_number`, `username` и `name` на эндпоинт `/api/v1/auth/signup/`.
+    
+    # Пользовательские роли
+    - **Аноним** — может просматривать описания произведений, читать отзывы и комментарии.
+    - **Аутентифицированный пользователь** (`user`) — может...
+
 paths:
   /api/v1/auth/token/login/:
     post:
-      operationId: Login
+      operationId: Получить токен авторизации
       description: Use this endpoint to obtain user authentication token.
       tags:
-      - auth
+        - Пользователи
       requestBody:
         content:
           application/json:
@@ -22,8 +31,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TokenCreate'
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -33,22 +42,22 @@ paths:
           description: ''
   /api/v1/auth/token/logout/:
     post:
-      operationId: auth_token_logout_create
+      operationId: Удаление токена
       description: Use this endpoint to logout user (remove user authentication token).
       tags:
-      - auth
+        - Пользователи
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           description: No response body
   /api/v1/users/:
     get:
-      operationId: users_list
+      operationId: Список пользователей
       tags:
-      - users
+        - Пользователи
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -59,9 +68,9 @@ paths:
                   $ref: '#/components/schemas/CustomUser'
           description: ''
     post:
-      operationId: users_create
+      operationId: Регистрация пользователя
       tags:
-      - users
+        - Пользователи
       requestBody:
         content:
           application/json:
@@ -75,8 +84,8 @@ paths:
               $ref: '#/components/schemas/UserCreate'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '201':
           content:
@@ -86,18 +95,18 @@ paths:
           description: ''
   /api/v1/users/{id}/:
     get:
-      operationId: users_retrieve
+      operationId: Профиль пользователя
       parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this User.
-        required: true
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
       tags:
-      - users
+        - Пользователи
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -106,16 +115,16 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     put:
-      operationId: users_update
+      operationId: api_v1_users_update
       parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this User.
-        required: true
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -129,7 +138,7 @@ paths:
               $ref: '#/components/schemas/CustomUser'
         required: true
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -138,16 +147,16 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     patch:
-      operationId: users_partial_update
+      operationId: api_v1_users_partial_update
       parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this User.
-        required: true
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -160,7 +169,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedCustomUser'
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -169,26 +178,26 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     delete:
-      operationId: users_destroy
+      operationId: api_v1_users_destroy
       parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this User.
-        required: true
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
       tags:
-      - users
+        - api
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '204':
           description: No response body
   /api/v1/users/activation/:
     post:
-      operationId: users_activation_create
+      operationId: api_v1_users_activation_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -202,8 +211,8 @@ paths:
               $ref: '#/components/schemas/Activation'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -213,11 +222,11 @@ paths:
           description: ''
   /api/v1/users/me/:
     get:
-      operationId: users_me_retrieve
+      operationId: api_v1_users_me_retrieve
       tags:
-      - users
+        - api
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -226,9 +235,9 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     put:
-      operationId: users_me_update
+      operationId: api_v1_users_me_update
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -242,7 +251,7 @@ paths:
               $ref: '#/components/schemas/CustomUser'
         required: true
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -251,9 +260,9 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     patch:
-      operationId: users_me_partial_update
+      operationId: api_v1_users_me_partial_update
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -266,7 +275,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedCustomUser'
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -275,19 +284,19 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     delete:
-      operationId: users_me_destroy
+      operationId: api_v1_users_me_destroy
       tags:
-      - users
+        - api
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '204':
           description: No response body
   /api/v1/users/resend_activation/:
     post:
-      operationId: users_resend_activation_create
+      operationId: api_v1_users_resend_activation_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -301,8 +310,8 @@ paths:
               $ref: '#/components/schemas/SendEmailReset'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -312,9 +321,9 @@ paths:
           description: ''
   /api/v1/users/reset_password/:
     post:
-      operationId: users_reset_password_create
+      operationId: api_v1_users_reset_password_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -328,8 +337,8 @@ paths:
               $ref: '#/components/schemas/SendEmailReset'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -339,9 +348,9 @@ paths:
           description: ''
   /api/v1/users/reset_password_confirm/:
     post:
-      operationId: users_reset_password_confirm_create
+      operationId: api_v1_users_reset_password_confirm_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -355,8 +364,8 @@ paths:
               $ref: '#/components/schemas/PasswordResetConfirm'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -366,9 +375,9 @@ paths:
           description: ''
   /api/v1/users/reset_username/:
     post:
-      operationId: users_reset_username_create
+      operationId: api_v1_users_reset_username_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -382,8 +391,8 @@ paths:
               $ref: '#/components/schemas/SendEmailReset'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -393,9 +402,9 @@ paths:
           description: ''
   /api/v1/users/reset_username_confirm/:
     post:
-      operationId: users_reset_username_confirm_create
+      operationId: api_v1_users_reset_username_confirm_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -409,8 +418,8 @@ paths:
               $ref: '#/components/schemas/UsernameResetConfirm'
         required: true
       security:
-      - tokenAuth: []
-      - {}
+        - tokenAuth: [ ]
+        - { }
       responses:
         '200':
           content:
@@ -420,9 +429,9 @@ paths:
           description: ''
   /api/v1/users/set_password/:
     post:
-      operationId: users_set_password_create
+      operationId: api_v1_users_set_password_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -436,7 +445,7 @@ paths:
               $ref: '#/components/schemas/SetPassword'
         required: true
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -446,9 +455,9 @@ paths:
           description: ''
   /api/v1/users/set_username/:
     post:
-      operationId: users_set_username_create
+      operationId: api_v1_users_set_username_create
       tags:
-      - users
+        - api
       requestBody:
         content:
           application/json:
@@ -462,7 +471,7 @@ paths:
               $ref: '#/components/schemas/SetUsername'
         required: true
       security:
-      - tokenAuth: []
+        - tokenAuth: [ ]
       responses:
         '200':
           content:
@@ -480,8 +489,8 @@ components:
         token:
           type: string
       required:
-      - token
-      - uid
+        - token
+        - uid
     CustomUser:
       type: object
       properties:
@@ -500,10 +509,10 @@ components:
           type: string
           maxLength: 128
       required:
-      - email
-      - id
-      - phone_number
-      - username
+        - email
+        - id
+        - phone_number
+        - username
     PasswordResetConfirm:
       type: object
       properties:
@@ -514,9 +523,9 @@ components:
         new_password:
           type: string
       required:
-      - new_password
-      - token
-      - uid
+        - new_password
+        - token
+        - uid
     PatchedCustomUser:
       type: object
       properties:
@@ -541,7 +550,7 @@ components:
           type: string
           format: email
       required:
-      - email
+        - email
     SetPassword:
       type: object
       properties:
@@ -550,8 +559,8 @@ components:
         current_password:
           type: string
       required:
-      - current_password
-      - new_password
+        - current_password
+        - new_password
     SetUsername:
       type: object
       properties:
@@ -562,8 +571,8 @@ components:
           title: Username
           maxLength: 50
       required:
-      - current_password
-      - new_username
+        - current_password
+        - new_username
     TokenCreate:
       type: object
       properties:
@@ -596,12 +605,12 @@ components:
           type: string
           writeOnly: true
       required:
-      - email
-      - id
-      - name
-      - password
-      - phone_number
-      - username
+        - email
+        - id
+        - name
+        - password
+        - phone_number
+        - username
     UsernameResetConfirm:
       type: object
       properties:
@@ -610,7 +619,7 @@ components:
           title: Username
           maxLength: 50
       required:
-      - new_username
+        - new_username
   securitySchemes:
     tokenAuth:
       type: apiKey
