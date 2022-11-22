@@ -1,0 +1,785 @@
+openapi: 3.0.3
+info:
+  title: Make Your Day API
+  version: 1.0.0
+  description: |
+    запросы к API начинаются с `/api/v1/`
+    
+    # Алгоритм регистрации пользователей
+    1. Пользователь отправляет POST-запрос на добавление нового пользователя с параметрами `email`, `phone_number`, `username` и `name` на эндпоинт
+    `/api/v1/users/`.
+    2. Пользователь выполняет вход с помощью POST-запроса с параметрами `username` и `password` на эндпоинт
+    `/api/v1/auth/token/login/` - в ответ приходит `token` (поднимается сессия).
+    
+    
+    # Пользовательские роли
+    - **Аноним** — может просматривать описания произведений, читать отзывы и комментарии.
+    - **Аутентифицированный пользователь** (`user`) — может...
+
+paths:
+  /api/v1/note/{id}:
+    get:
+      operationId: Получить конкретную задачу по id, текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+          description: ''
+    delete:
+      operationId: Удалить задачу по id, текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+          description: ''
+    put:
+      operationId: Изменить задачу целиком по id, текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotesCreate'
+            description: ''
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+              description: ''
+      patch:
+        operationId: Изменить некоторые поля по id, текущего пользователя
+        description: Use this endpoint to obtain user authentication token.
+        tags:
+          - Заметки
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotesCreate'
+              description: ''
+        security:
+          - tokenAuth: [ ]
+          - { }
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Notes'
+                description: ''
+  /api/v1/note:
+    get:
+      operationId: Получить все задачи текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+          description: ''
+    post:
+      operationId: Создать задачу для текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotesCreate'
+            description: ''
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+              description: ''
+  /api/v1/auth/token/login/:
+    post:
+      operationId: Получить токен авторизации
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Пользователи
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenCreate'
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenCreateResponse'
+          description: ''
+  /api/v1/auth/token/logout/:
+    post:
+      operationId: Удаление токена
+      description: Use this endpoint to logout user (remove user authentication token).
+      tags:
+        - Пользователи
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '204':
+          description: No Content
+  /api/v1/users/:
+    get:
+      operationId: Список пользователей
+      tags:
+        - Пользователи
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomUser'
+          description: ''
+    post:
+      operationId: Регистрация пользователя
+      tags:
+        - Пользователи
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreate'
+          description: 'Created'
+  /api/v1/users/{id}/:
+    get:
+      operationId: Профиль пользователя
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
+      tags:
+        - Пользователи
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    put:
+      operationId: api_v1_users_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+        required: true
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    patch:
+      operationId: api_v1_users_partial_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    delete:
+      operationId: api_v1_users_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          description: A unique integer value identifying this User.
+          required: true
+      tags:
+        - api
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '204':
+          description: No response body
+  /api/v1/users/activation/:
+    post:
+      operationId: api_v1_users_activation_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Activation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Activation'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activation'
+          description: ''
+  /api/v1/users/me/:
+    get:
+      operationId: Личный профиль
+      tags:
+        - Пользователи
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    put:
+      operationId: PUT Обновление профиля
+      tags:
+        - Пользователи
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+        required: true
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    patch:
+      operationId: PATCH обновление профиля
+      tags:
+        - Пользователи
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    delete:
+      operationId: api_v1_users_me_destroy
+      tags:
+        - api
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '204':
+          description: No response body
+  /api/v1/users/resend_activation/:
+    post:
+      operationId: api_v1_users_resend_activation_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEmailReset'
+          description: ''
+  /api/v1/users/reset_password/:
+    post:
+      operationId: api_v1_users_reset_password_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEmailReset'
+          description: ''
+  /api/v1/users/reset_password_confirm/:
+    post:
+      operationId: api_v1_users_reset_password_confirm_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordResetConfirm'
+          description: ''
+  /api/v1/users/reset_username/:
+    post:
+      operationId: api_v1_users_reset_username_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendEmailReset'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendEmailReset'
+          description: ''
+  /api/v1/users/reset_username_confirm/:
+    post:
+      operationId: api_v1_users_reset_username_confirm_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernameResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UsernameResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UsernameResetConfirm'
+        required: true
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameResetConfirm'
+          description: ''
+  /api/v1/users/set_password/:
+    post:
+      operationId: api_v1_users_set_password_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetPassword'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SetPassword'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SetPassword'
+        required: true
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetPassword'
+          description: ''
+  /api/v1/users/set_username/:
+    post:
+      operationId: api_v1_users_set_username_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetUsername'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SetUsername'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SetUsername'
+        required: true
+      security:
+        - tokenAuth: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetUsername'
+          description: ''
+components:
+  schemas:
+    Notes:
+      type: object
+      properties:
+        id:
+          type: number
+        data:
+          type: object
+          properties:
+            id:
+              type: number
+        type:
+          type: string
+        status:
+          type: string
+        deadline:
+          type: date
+          example: 2022-08-06
+        created_at:
+          type: date
+          example: 2022-08-06
+        updated_at:
+          type: date
+          example: 2022-08-06
+    NotesCreate:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: number
+        type:
+          type: number
+        status:
+          type: number
+        deadline:
+          type: date
+          example: 2022-08-06
+    Activation:
+      type: object
+      properties:
+        uid:
+          type: string
+        token:
+          type: string
+      required:
+        - token
+        - uid
+    CustomUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          maxLength: 50
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        phone_number:
+          type: string
+          maxLength: 128
+      required:
+        - email
+        - id
+        - phone_number
+        - username
+    PasswordResetConfirm:
+      type: object
+      properties:
+        uid:
+          type: string
+        token:
+          type: string
+        new_password:
+          type: string
+      required:
+        - new_password
+        - token
+        - uid
+    PatchedCustomUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          maxLength: 50
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        phone_number:
+          type: string
+          maxLength: 128
+    SendEmailReset:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+        - email
+    SetPassword:
+      type: object
+      properties:
+        new_password:
+          type: string
+        current_password:
+          type: string
+      required:
+        - current_password
+        - new_password
+    SetUsername:
+      type: object
+      properties:
+        current_password:
+          type: string
+        new_username:
+          type: string
+          title: Username
+          maxLength: 50
+      required:
+        - current_password
+        - new_username
+    TokenCreate:
+      type: object
+      properties:
+        password:
+          type: string
+        username:
+          type: string
+    TokenCreateResponse:
+      type: object
+      properties:
+        auth_token:
+          type: string
+    UserCreate:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        name:
+          type: string
+          title: Full Name
+          maxLength: 150
+        phone_number:
+          type: string
+          maxLength: 128
+        username:
+          type: string
+          maxLength: 50
+        id:
+          type: integer
+          readOnly: true
+        password:
+          type: string
+          writeOnly: true
+      required:
+        - email
+        - id
+        - name
+        - password
+        - phone_number
+        - username
+    UsernameResetConfirm:
+      type: object
+      properties:
+        new_username:
+          type: string
+          title: Username
+          maxLength: 50
+      required:
+        - new_username
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
