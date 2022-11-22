@@ -1,15 +1,8 @@
 addReviewers: true
-numberOfReviewers: 1
+addAssignees: author
+
 reviewers:
- - anywindblows
- - Ferox-x
+  - anywindblows
+  - Ferox-x
 
-addAssignees: true
-assignees:
- - Ferox-x
- - anywindlbows
-numberOfAssignees: 1
-
-skipKeywords:
-  - wip
-  - draft
+numberOfReviewers: 1
