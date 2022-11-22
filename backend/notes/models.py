@@ -14,19 +14,21 @@ class Note(models.Model):
         verbose_name=_('Updated')
     )
     deadline = models.DateTimeField(verbose_name=_('Deadline'))
+    data = models.JSONField(verbose_name=_('Data'))
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_('User')
+    )
     type = models.ForeignKey(
         'NoteType',
+        null=True,
         on_delete=models.SET_NULL,
         verbose_name=_('Type')
     )
-    data = models.JSONField(verbose_name=_('Data'))
-    user_id = models.ForeignKey(
-        User,
-        on_delete=models.SET_NULL,
-        verbose_name=_('User')
-    )
     status = models.ForeignKey(
         'NoteStatus',
+        null=True,
         on_delete=models.SET_NULL,
         verbose_name=_('Status')
     )
@@ -44,7 +46,7 @@ class NoteType(models.Model):
         verbose_name = _('Note types')
 
 
-class NoteStatus:
+class NoteStatus(models.Model):
     status = models.CharField(max_length=50, verbose_name=_('Note status'))
 
     class Meta:
