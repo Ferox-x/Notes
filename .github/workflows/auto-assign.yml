@@ -1,14 +1,11 @@
-name: "Auto Assign"
-on:
-  pull_request:
-    types: [assigned]
+name: 'Auto assign assignees or reviewers'
+on: pull_request
 
 jobs:
-  assign_reviewer:
+  add-reviews:
+    name: "Auto assignment of a assignee"
     runs-on: ubuntu-latest
     steps:
-    - uses: shufo/auto-assign-reviewer-by-assignee@v1.1.0
-      with:
-        config: '.github/assignee.config.yml'
-        token: ${{ secrets.GITHUB_TOKEN }}
-
+      - uses: kentaro-m/auto-assign-action@v1.1.2
+        with:
+          configuration-path: ".github/assignee.config.yml"
