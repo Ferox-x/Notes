@@ -1,0 +1,23 @@
+build:
+  - ".github/**/*"
+  - ".gitignore"
+  - ".dockerignore"
+  - ".editorconfig"
+  - "setup.cfg"
+
+frontend:
+  - "frontend/**/*"
+
+backend:
+  - "backend/**/*"
+
+docker:
+  - "docker/**/*"
+
+docs:
+  - "README.md"
+  - "backend/static/openapi-schema.yaml"
+
+dependencies:
+  - "requirements.txt"
+  - "requirements_prod.txt"

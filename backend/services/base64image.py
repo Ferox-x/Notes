@@ -6,24 +6,22 @@ import uuid
 
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
-from rest_framework.fields import (
-    ImageField,
-)
+from rest_framework.fields import ImageField
 
 DEFAULT_CONTENT_TYPE = "application/octet-stream"
 
 
 class Base64FieldMixin(object):
     @property
-    def ALLOWED_TYPES(self):
+    def allowed_types(self):
         raise NotImplementedError
 
     @property
-    def INVALID_FILE_MESSAGE(self):
+    def invalid_file_message(self):
         raise NotImplementedError
 
     @property
-    def INVALID_TYPE_MESSAGE(self):
+    def invalid_type_message(self):
         raise NotImplementedError
 
     EMPTY_VALUES = (None, '', [], (), {})
@@ -45,19 +43,22 @@ class Base64FieldMixin(object):
             try:
                 decoded_file = base64.b64decode(base64_data)
             except (TypeError, binascii.Error, ValueError):
-                raise ValidationError(self.INVALID_FILE_MESSAGE)
+                raise ValidationError(self.invalid_file_message)
 
             file_name = self.get_file_name(decoded_file)
             file_extension = self.get_file_extension(file_name, decoded_file)
 
-            if file_extension not in self.ALLOWED_TYPES:
-                raise ValidationError(self.INVALID_TYPE_MESSAGE)
+            if file_extension not in self.allowed_types:
+                raise ValidationError(self.invalid_type_message)
             complete_file_name = file_name + "." + file_extension
             data = ContentFile(decoded_file, name=complete_file_name)
             return super(Base64FieldMixin, self).to_internal_value(data)
 
-        raise ValidationError('Invalid type. This is not an base64 string: {}'.format(
-            type(base64_data)))
+        raise ValidationError(
+            'Invalid type. This is not an base64 string: {}'.format(
+                type(base64_data)
+            )
+        )
 
     def get_file_extension(self, filename, decoded_file):
         raise NotImplementedError
@@ -94,8 +95,5 @@ class Base64ImageField(Base64FieldMixin, ImageField):
                 image = Image.open(io.BytesIO(decoded_file))
             except (OSError, IOError):
                 raise ValidationError(self.INVALID_FILE_MESSAGE)
-
             extension = image.format.lower()
-
-        extension = "jpg" if extension == "jpeg" else extension
-        return extension
+        return "jpg" if extension == "jpeg" else extension
