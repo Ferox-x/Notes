@@ -2,8 +2,7 @@ import {Component} from "react";
 import './header.css';
 
 
-class Header extends Component {
-  render() {
+function Header (){
     return (
       <header>
         <div className="header-mobile">
@@ -26,7 +25,6 @@ class Header extends Component {
           </div>
         </div>
       </header>)
-  }
 }
 
 export default Header;

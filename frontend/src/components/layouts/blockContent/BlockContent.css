@@ -1,0 +1,24 @@
+.empty-content-block:last-child {
+  margin-top: 20px;
+}
+
+.content-block-title__text {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.content-block-area {
+  height: 80px;
+  border: 1px dashed #4329AA;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 15px;
+}
+
+.content-block-area__text {
+  white-space: nowrap;
+  font-size: 10px;
+  color: black;
+  opacity: 0.3;
+  margin: auto;
+}

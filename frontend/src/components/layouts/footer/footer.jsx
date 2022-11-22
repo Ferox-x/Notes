@@ -2,8 +2,7 @@ import {Component} from "react";
 import './footer.css';
 
 
-class Footer extends Component {
-  render() {
+function Footer () {
     return (
       <nav className="bottom-navbar-mobile">
         <a href="#" className="bottom-navbar-mobile__btn-home"></a>
@@ -11,7 +10,6 @@ class Footer extends Component {
         <a href="#" className="bottom-navbar-mobile__btn-share"></a>
         <a href="#" className="bottom-navbar-mobile__btn-calendar"></a>
       </nav>)
-  }
 }
 
 export default Footer;
