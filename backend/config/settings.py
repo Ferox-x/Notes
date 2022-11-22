@@ -1,5 +1,4 @@
 import os
-from datetime import timedelta
 from os import path
 from pathlib import Path
 
@@ -80,26 +79,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': config_env.get(
-            'DB_ENGINE',
-            'django.db.backends.postgresql_psycopg2'
-        ),
-        'NAME': config_env.get('DB_NAME', 'postgres'),
-        'USER': config_env.get('POSTGRES_USER', 'postgres'),
-        'PASSWORD': config_env.get('POSTGRES_PASSWORD', 'postgres'),
-        'HOST': config_env.get('DB_HOST', 'localhost'),
-        'PORT': config_env.get('DB_PORT', '5432'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': config_env.get(
+#             'DB_ENGINE',
+#             'django.db.backends.postgresql_psycopg2'
+#         ),
+#         'NAME': config_env.get('DB_NAME', 'postgres'),
+#         'USER': config_env.get('POSTGRES_USER', 'postgres'),
+#         'PASSWORD': config_env.get('POSTGRES_PASSWORD', 'postgres'),
+#         'HOST': config_env.get('DB_HOST', 'localhost'),
+#         'PORT': config_env.get('DB_PORT', '5432'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 LOGGING = {
     'version': 1,

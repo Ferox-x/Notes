@@ -6,7 +6,11 @@ info:
     запросы к API начинаются с `/api/v1/`
     
     # Алгоритм регистрации пользователей
-    1. Пользователь отправляет POST-запрос на добавление нового пользователя с параметрами `email`, `phone_number`, `username` и `name` на эндпоинт `/api/v1/auth/signup/`.
+    1. Пользователь отправляет POST-запрос на добавление нового пользователя с параметрами `email`, `phone_number`, `username` и `name` на эндпоинт
+    `/api/v1/users/`.
+    2. Пользователь выполняет вход с помощью POST-запроса с параметрами `username` и `password` на эндпоинт
+    `/api/v1/auth/token/login/` - в ответ приходит `token` (поднимается сессия).
+    
     
     # Пользовательские роли
     - **Аноним** — может просматривать описания произведений, читать отзывы и комментарии.
@@ -148,7 +152,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TokenCreate'
+                $ref: '#/components/schemas/TokenCreateResponse'
           description: ''
   /api/v1/auth/token/logout/:
     post:
@@ -159,8 +163,8 @@ paths:
       security:
         - tokenAuth: [ ]
       responses:
-        '200':
-          description: No response body
+        '204':
+          description: No Content
   /api/v1/users/:
     get:
       operationId: Список пользователей
@@ -202,7 +206,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserCreate'
-          description: ''
+          description: 'Created'
   /api/v1/users/{id}/:
     get:
       operationId: Профиль пользователя
@@ -332,9 +336,9 @@ paths:
           description: ''
   /api/v1/users/me/:
     get:
-      operationId: api_v1_users_me_retrieve
+      operationId: Личный профиль
       tags:
-        - api
+        - Пользователи
       security:
         - tokenAuth: [ ]
       responses:
@@ -345,9 +349,9 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     put:
-      operationId: api_v1_users_me_update
+      operationId: PUT Обновление профиля
       tags:
-        - api
+        - Пользователи
       requestBody:
         content:
           application/json:
@@ -370,9 +374,9 @@ paths:
                 $ref: '#/components/schemas/CustomUser'
           description: ''
     patch:
-      operationId: api_v1_users_me_partial_update
+      operationId: PATCH обновление профиля
       tags:
-        - api
+        - Пользователи
       requestBody:
         content:
           application/json:
@@ -727,6 +731,11 @@ components:
         password:
           type: string
         username:
+          type: string
+    TokenCreateResponse:
+      type: object
+      properties:
+        auth_token:
           type: string
     UserCreate:
       type: object
