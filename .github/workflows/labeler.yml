@@ -1,4 +1,4 @@
-name: "Auto labeling for a pull request"
+name: Auto labeling for a pull request
 on:
   - pull_request_target
 

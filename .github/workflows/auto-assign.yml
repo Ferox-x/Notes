@@ -1,4 +1,4 @@
-name: 'Auto assign assignees or reviewers'
+name: Auto assign assignees or reviewers
 on: pull_request
 
 jobs:
