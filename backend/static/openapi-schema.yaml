@@ -13,6 +13,116 @@ info:
     - **Аутентифицированный пользователь** (`user`) — может...
 
 paths:
+  /api/v1/note/{id}:
+    get:
+      operationId: Получить конкретную задачу по id, текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+          description: ''
+    delete:
+      operationId: Удалить задачу по id, текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+          description: ''
+    put:
+      operationId: Изменить задачу целиком по id, текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotesCreate'
+            description: ''
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+              description: ''
+      patch:
+        operationId: Изменить некоторые поля по id, текущего пользователя
+        description: Use this endpoint to obtain user authentication token.
+        tags:
+          - Заметки
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotesCreate'
+              description: ''
+        security:
+          - tokenAuth: [ ]
+          - { }
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Notes'
+                description: ''
+  /api/v1/note:
+    get:
+      operationId: Получить все задачи текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+          description: ''
+    post:
+      operationId: Создать задачу для текущего пользователя
+      description: Use this endpoint to obtain user authentication token.
+      tags:
+        - Заметки
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotesCreate'
+            description: ''
+      security:
+        - tokenAuth: [ ]
+        - { }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notes'
+              description: ''
   /api/v1/auth/token/login/:
     post:
       operationId: Получить токен авторизации
@@ -481,6 +591,44 @@ paths:
           description: ''
 components:
   schemas:
+    Notes:
+      type: object
+      properties:
+        id:
+          type: number
+        data:
+          type: object
+          properties:
+            id:
+              type: number
+        type:
+          type: string
+        status:
+          type: string
+        deadline:
+          type: date
+          example: 2022-08-06
+        created_at:
+          type: date
+          example: 2022-08-06
+        updated_at:
+          type: date
+          example: 2022-08-06
+    NotesCreate:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: number
+        type:
+          type: number
+        status:
+          type: number
+        deadline:
+          type: date
+          example: 2022-08-06
     Activation:
       type: object
       properties:
