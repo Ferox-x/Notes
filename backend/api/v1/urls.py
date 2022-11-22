@@ -11,5 +11,4 @@ urlpatterns = [
     path('', include(v1.urls)),
     path('', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
-
 ]
