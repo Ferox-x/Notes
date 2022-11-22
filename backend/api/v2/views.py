@@ -1,10 +1,9 @@
-from rest_framework import authentication, viewsets, status
+from api.v2.serializers import NoteSerializer
+from notes.models import Note
+from rest_framework import authentication, status, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
-
-from api.v2.serializers import NoteSerializer
-from notes.models import Note
 
 
 class NoteViewSet(viewsets.ModelViewSet):
@@ -26,4 +25,8 @@ class NoteViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(
+            serializer.data,
+            status=status.HTTP_201_CREATED,
+            headers=headers
+        )

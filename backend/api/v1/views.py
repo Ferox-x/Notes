@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from djoser.views import UserViewSet
+
 from .permissions import IsOwnerOrReadOnly
 from .serializers import CustomUserSerializer
 

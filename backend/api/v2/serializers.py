@@ -1,6 +1,5 @@
+from notes.models import Note, NoteStatus, NoteType
 from rest_framework import serializers
-
-from notes.models import NoteType, NoteStatus, Note
 
 
 class NoteTypeSerializer(serializers.ModelSerializer):
@@ -23,8 +22,7 @@ class NoteSlugRelatedField(serializers.SlugRelatedField):
         self.model_name = model
 
     def to_internal_value(self, data):
-        object = self.model_name.objects.get(id=data)
-        return object
+        return self.model_name.objects.get(id=data)
 
 
 class NoteSerializer(serializers.ModelSerializer):
@@ -41,5 +39,8 @@ class NoteSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        fields = ('id', 'data', 'type', 'status', 'deadline', 'created_at', 'updated_at', )
+        fields = (
+            'id', 'data', 'type', 'status',
+            'deadline', 'created_at', 'updated_at'
+        )
         model = Note
