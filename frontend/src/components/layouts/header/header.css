@@ -21,7 +21,7 @@
 }
 
 .header-mobile__notification {
-  /*background: url(../../../../static/img/icons/header_img/notification.svg) 0px center / auto no-repeat;*/
+  background: url(../../../img/header_img/notification.svg) 0px center / auto no-repeat;
   height: 16px;
   width: 16px;
   flex-basis: 14.3%;
@@ -39,7 +39,7 @@
 }
 
 .maketask-button__icon {
-  /*background: url(../../../../static/img/icons/header_img/maketusk.svg) 0px center / auto no-repeat;*/
+  background: url(../../../img/header_img/maketusk.svg) 0px center / auto no-repeat;
   height: 15px;
   width: 15px;
 }

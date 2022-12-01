@@ -1,0 +1,32 @@
+.profile-top {
+  width: 270px;
+  margin: 0 auto;
+}
+
+.profile__data {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.profile__info {
+  margin-left: 56px;
+  padding-top: 15px;
+}
+
+.profile__name {
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.profile__email {
+  font-weight: 400;
+  font-size: 9px;
+}
+
+.profile__button-edit {
+  font-weight: 400;
+  font-size: 9px;
+  color: #4329AA;
+}

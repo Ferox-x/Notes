@@ -1,0 +1,88 @@
+.content-block-area-filled {
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 15px;
+  background-color: #9B89E1;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px 12px 8px 11px;
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.content-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.content-top__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.content-top__status {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.content-top__status_in-progress {
+  width: 100px;
+  background-repeat: no-repeat;
+  background-image: url(../../../img/task_status/in_progress.svg);
+  background-position-x: 88px;
+}
+
+.content-top__status_start {
+  width: 120px;
+  background-repeat: no-repeat;
+  background-image: url(../../../img/task_status/start.svg);
+  background-position-x: 112px;
+}
+
+.content-top__status_review {
+  width: 60px;
+  background-repeat: no-repeat;
+  background-image: url(../../../img/task_status/review.svg);
+  background-position-x: 48px;
+}
+
+.content-top__icon-group {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url(../../../img/task_group/team.svg);
+}
+
+/* end-empty-content-block */
+
+.content-top__icon-solo {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url(../../../img/task_group/solo.svg);
+}
+
+.content-date {
+  display: flex;
+  width: 130px;
+  justify-content: space-between;
+}
+
+.content-date__text {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.content-date__text-green {
+  color: #D1FFBC;
+}
+
+

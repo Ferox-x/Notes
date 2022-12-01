@@ -1,0 +1,14 @@
+.user-form__input-text {
+  font-family: 'Roboto';
+  width: 256px;
+  margin-bottom: 11px;
+  padding: 7px 12px;
+  border: 0;
+  border-bottom: 1px solid rgba(67, 41, 170, 0.3);
+  font-size: 12px;
+
+}
+
+.user-form__input-text:last-of-type {
+  margin-bottom: 0;
+}
