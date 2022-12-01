@@ -23,7 +23,7 @@
 }
 
 .profile-button__arrow {
-  background-image: url(../../../../img/profile/profile_arrow_2.svg);
+  background-image: url(../../../img/profile/profile_arrow_2.svg);
   background-repeat: no-repeat;
   background-position: 93% 50%;
 }

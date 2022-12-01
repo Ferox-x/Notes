@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "../title/Title";
-import BlockContent from "../blockContent/BlockContent";
+import Title from "../attribute/title/Title";
+import BlockContent from "../attribute/blockContent/BlockContent";
 
 
 function Notifications() {

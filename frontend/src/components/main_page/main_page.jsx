@@ -1,7 +1,7 @@
 import {Component} from "react";
 import './main_page.css';
-import BlockContent from "../blockContent/BlockContent";
-import Title from "../title/Title";
+import BlockContent from "../attribute/blockContent/BlockContent";
+import Title from "../attribute/title/Title";
 
 function MainPage() {
   return (

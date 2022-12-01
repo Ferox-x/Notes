@@ -1,6 +1,6 @@
 import React from "react";
 import './profile_top.css'
-import profile_img from '../../../../img/profile/profile-image.svg'
+import profile_img from '../../../img/profile/profile-image.svg'
 import {NavLink} from "react-router-dom";
 
 function ProfileTop(props) {

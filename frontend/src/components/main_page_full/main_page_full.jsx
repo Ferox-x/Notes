@@ -1,9 +1,9 @@
 import React from "react";
 import './main_page_full.css'
-import Title from "../title/Title";
-import BlockContentFilled from "../block_content_filled/block_content_filled";
-import BlockContent from "../blockContent/BlockContent";
-import Subtitle from "../subtitle/subtitle";
+import Title from "../attribute/title/Title";
+import BlockContentFilled from "../attribute/block_content_filled/block_content_filled";
+import BlockContent from "../attribute/blockContent/BlockContent";
+import Subtitle from "../attribute/subtitle/subtitle";
 
 function MainPageFull() {
   return (
