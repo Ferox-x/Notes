@@ -12,7 +12,7 @@ function BlockContentFilled (props){
             className="content-top__status content-top__status_in-progress">
             {props.info.status}
           </div>
-          <div className="content-top__icon-group"></div>
+          <div className="content-top__icon-group">{props.info.img}</div>
         </div>
         <div className="content-date">
           <div className="content-date__text">{props.info.date}</div>

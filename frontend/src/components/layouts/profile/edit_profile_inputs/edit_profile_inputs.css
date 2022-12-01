@@ -1,0 +1,11 @@
+.profile__data-user {
+  width: 256px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid rgba(67, 41, 170, 0.3);;
+  outline: none;
+  font-weight: 400;
+  font-size: 10px;
+  padding-left: 7px;
+  margin-bottom: 25px;
+}

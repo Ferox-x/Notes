@@ -3,9 +3,12 @@ import './Title.css';
 
 function Title(props) {
   return (
-    <section className="page-title">
-      <p className="page-title__text">{props.title.title}</p>
-    </section>
+    <div>
+      <section className="page-title">
+        <p className="page-title__text">{props.title.title}</p>
+      </section>
+    </div>
+
   )
 }
 
