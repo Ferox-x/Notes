@@ -10,7 +10,6 @@
 
 }
 .submit-button {
-  font-family: 'Roboto';
   padding: 12px;
   width: 174px;
   border: 0;
@@ -20,6 +19,4 @@
   color: #FFFFFF;
   font-size: 12px;
 }
-.submit-button__login-margin{
-  margin-bottom: 30px;
-}
+

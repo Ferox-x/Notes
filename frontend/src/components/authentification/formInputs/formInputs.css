@@ -1,5 +1,4 @@
 .user-form__input-text {
-  font-family: 'Roboto';
   width: 256px;
   margin-bottom: 11px;
   padding: 7px 12px;
@@ -10,5 +9,5 @@
 }
 
 .user-form__input-text:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }

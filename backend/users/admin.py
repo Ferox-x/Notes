@@ -24,7 +24,7 @@ class UserCreationForm(forms.ModelForm):
         fields = ('username',)
 
     def clean_password2(self):
-        """Password validation."""
+        """Password authentification."""
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
         if password1 and password2 and password1 != password2:

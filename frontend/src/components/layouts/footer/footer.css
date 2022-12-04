@@ -1,15 +1,11 @@
 .bottom-navbar-mobile {
   background: white;
-  bottom: -1px;
   display: flex;
   height: 50px;
-  position: fixed;
-  width: 100%;
   z-index: 100;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 10px;
-  width: 320px;
+  width: 100%;
 }
 
 .bottom-navbar-mobile__btn-home {
@@ -27,7 +23,7 @@
 .bottom-navbar-mobile__btn-share {
   background: url(../../../img/bottom-navbar-mobile/projects.svg) center / auto no-repeat;
   height: 30px;
-  width: 21px;
+  width: 30px;
 }
 
 .bottom-navbar-mobile__btn-calendar {

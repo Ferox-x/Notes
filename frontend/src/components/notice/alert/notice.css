@@ -1,0 +1,30 @@
+.notice_div {
+  position: absolute;
+  right: 15px;
+  bottom: 80px;
+  width: 240px;
+  min-height: 40px;
+  border-radius: 10px;
+  background: aquamarine;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.notice_image {
+  width: 60px;
+  height: 40px;
+  border-radius: 20px;
+  background-image: url("../../../img/Check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px 40px;
+  margin-right: 5px;
+}
+
+.notice_message {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  text-align: center;
+}

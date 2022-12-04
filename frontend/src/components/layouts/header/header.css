@@ -15,7 +15,7 @@
 
 .header-mobile__search {
   background: url(../../../img/header_img/search.svg) 0 center / auto no-repeat;
-  height: 15px;
+  height: 16px;
   width: 15px;
   flex-basis: 12%;
 }

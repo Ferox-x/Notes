@@ -1,7 +1,7 @@
 import {Component} from "react";
 import './header.css';
 import {NavLink} from "react-router-dom";
-
+import urls from "../../../urls";
 
 function Header (){
     return (
@@ -9,10 +9,10 @@ function Header (){
         <div className="header-mobile">
           <div className="header-mobile__wrap">
             <div className="header-mobile__box">
-              <NavLink to="/profile"
+              <NavLink to={urls.PROFILE}
                  className="header-mobile__userimage"></NavLink>
               <NavLink to="#" className="header-mobile__search"></NavLink>
-              <NavLink to="/notification"
+              <NavLink to={urls.NOTIFICATION}
                  className="header-mobile__notification"></NavLink>
               <div className="maketask-button">
                 <NavLink to="#" className="maketask-button__label">
