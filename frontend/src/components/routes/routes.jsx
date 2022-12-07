@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Route, Routes} from "react-router-dom";
+import Switch from "react-switch";
 import MainPage from "../main_page/main_page";
 import Task from "../task/task";
 import Project from "../project/project";
@@ -13,25 +14,12 @@ import SignUp from "../authentification/sign_up/sign_up";
 import NoticeList from "../notice/notice_list/notice_list";
 import Login from "../authentification/login/login";
 import {useSelector} from "react-redux";
+import PersonalTask from "../task/personal_task/personal_task";
+import DetailTask from "../task/personal_task/detail_task/detail_task";
 
 function Content(props) {
-  const isAuth = useSelector(state => state.user.isAuth)
 
-  const [noticeList, setNoticeList] = useState([])
 
-  function deleteNotice(id) {
-    setNoticeList(noticeList.filter(n => n.key !== id))
-  }
-
-  function createNotice(id, message) {
-    setNoticeList([...noticeList,
-      {
-        id: Date.now(),
-        message,
-        deleteNotice
-      }
-    ])
-  }
 
   return (
     <div>
@@ -45,11 +33,10 @@ function Content(props) {
         <Route path={urls.SETTINGS} element={<ProfileSettings/>}/>
         <Route path={urls.PUSH} element={<ProfilePush/>}/>
         <Route path={urls.EDIT} element={<EditProfile/>}/>
-        <Route path={urls.SIGNUP}
-               element={<SignUp create={createNotice}/>}/>
-        <Route path={urls.LOGIN} element={<Login create={createNotice}/>}/>
+        <Route path={urls.PERSONAL_TASK} element={<PersonalTask/>}/>
+        <Route path={'/task1'} element={<DetailTask/>}/>
       </Routes>
-      <NoticeList notifications={noticeList}/>
+
     </div>
 
 

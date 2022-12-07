@@ -23,7 +23,7 @@ class Authentication {
                 'http://127.0.0.1:8000/api/v1/auth/token/login/',
                 {username, password})
             console.log(response.data)
-            // dispatch(setUser(response.data))
+            dispatch(setUser(response.data.user))
             localStorage.setItem('token', response.data.auth_token)
             if (response.status === 200) {
                 let message = 'Вы успешно вошли.'

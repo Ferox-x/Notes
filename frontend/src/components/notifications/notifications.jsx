@@ -8,7 +8,7 @@ function Notifications() {
     <div>
       <Title title={{title: 'Уведомления'}}/>
       <BlockContent block={{
-        area_text: 'Создайте свой первый проект и получайте уведомления!'
+        area_text: 'Создайте первый проект и получайте уведомления!'
       }}/>
     </div>
   )

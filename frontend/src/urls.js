@@ -11,6 +11,8 @@ const SETTINGS = '/settings'
 const SIGNUP = '/signup'
 const LOGIN = '/login'
 
+const PERSONAL_TASK = '/personal_task'
+
 const urls = {
     'MAIN_PAGE': MAIN_PAGE,
     'PROFILE': PROFILE,
@@ -22,6 +24,7 @@ const urls = {
     'SETTINGS': SETTINGS,
     'SIGNUP': SIGNUP,
     'LOGIN': LOGIN,
+    'PERSONAL_TASK': PERSONAL_TASK
 }
 
 export default urls
