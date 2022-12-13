@@ -59,7 +59,7 @@ function Content(props) {
                element={<Login create={createNotice}/>}/>
       </Routes>
       <NoticeList notifications={noticeList}/>
-      {!isAuth && <Navigate to={urls.SIGNUP}/>}
+      {/*{!isAuth && <Navigate to={urls.SIGNUP}/>}*/}
     </div>
   )
 }
