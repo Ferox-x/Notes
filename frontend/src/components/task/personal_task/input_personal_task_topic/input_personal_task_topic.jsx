@@ -1,11 +1,10 @@
 import React from "react";
 import './input_personal_task_topic.css'
 
-function TaskTopic(props) {
+const TaskTopic = React.forwardRef((props, ref) => {
   return(
-    <input className="personal-task__create-topic" type={props.type}
-           placeholder={props.placeholder}/>
+    <input ref={ref} className="personal-task__create-topic" {...props}/>
   )
-}
+});
 
 export default TaskTopic;

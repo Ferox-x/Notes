@@ -1,9 +1,9 @@
 import React from "react";
 import './btn_profile.css'
 
-function BtnProfile(props) {
+function BtnProfile({children, ...props}) {
   return (
-      <div className="profile__edit-btn">{props.button.text}</div>
+      <button {...props} className="profile__edit-btn">{children}</button>
   )
 }
 

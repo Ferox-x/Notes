@@ -1,19 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import './task.css'
 import Title from "../attribute/title/Title";
-import BlockContent from "../attribute/blockContent/BlockContent";
+import TaskList from "./personal_task/taskList/TaskList";
+import PersonalTask from "./personal_task/personal_task";
 
 function Task() {
+  const [tasks, setTasks] = useState([
+
+  ])
+
+  const createTask = (newTask) => {
+    setTasks([...tasks, newTask])
+  }
+
   return (
     <div>
       <Title title={{title: 'Задачи'}}/>
-      <BlockContent block={{
-        title: 'Сегодня', area_text: 'Здесь появятся ваши сегодняшние задачи'
-      }}/>
-      <BlockContent block={{
-        title: 'В этом месяце',
-        area_text: 'Здесь появятся ваши задачи в этом месяце'
-      }}/>
+
+      <PersonalTask create={createTask}/>
+      <TaskList tasks={tasks}/>
+
 
     </div>
   )

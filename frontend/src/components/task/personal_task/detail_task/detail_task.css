@@ -2,10 +2,9 @@
   width: 288px;
   background: #9B89E1;
   border-radius: 10px;
-  overflow: auto;
-  max-height: 500px;
+  max-height: 550px;
   padding: 8px;
-  margin: 20px auto 0;
+  margin: 0 auto;
 }
 
 .detail-task-container__top {

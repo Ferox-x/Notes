@@ -5,25 +5,13 @@ function DetailTask(props) {
   return (
     <div className={'detail-task-container'}>
       <div className={'detail-task-container__top'}>
-        <div className={'detail-task-container__title'}>Дизайн-макет
-          приложения
+        <div className={'detail-task-container__title'}>{props.task.title}
         </div>
         <div className={'detail-task-container__back'}></div>
       </div>
       <div className={'detail-task-container__middle'}>
         <div className={'detail-task-container__text'}>
-          Делаем пока вариант сайта с разделами "о препарате" и с двумя
-          видеовизитами. Лендинг и видеоинтервью добавим позже.
-          В вертске так и будет - разделы и кнопки будем добавлять постепенно,
-          а не сразу.
-          Еще момент - пришлите, пожалуйста вот этот вариант сайта из трех
-          разделов без повторов страниц, то есть им не надо показывать сейчас
-          на каждой странице всякие действия типа выделения кнопок
-          разделов.внимательно посмотрели, - надо немного изменить дизайн.
-          во-первых, сделайте галки везде одинаковыми. Во-вторых, давайте
-          попробуем сделать блоки вот как тут у них на сайте, типа на розовом
-          фоне белые блоки и наоборот. и выравнивание у всех блоков должно быть
-          одинаковым....
+          {props.task.description}
         </div>
       </div>
       <div className={'detail-task-container__bottom'}>
