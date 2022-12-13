@@ -5,7 +5,7 @@ import FormInputs from "../formInputs/formInputs";
 import './form.css';
 import Authentication from "../../../actions/auth";
 import urls from "../../../urls";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function SignUp(props) {

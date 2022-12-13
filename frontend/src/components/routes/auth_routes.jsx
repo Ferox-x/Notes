@@ -28,10 +28,7 @@ function AuthRoutes(props) {
 
 
       <Routes>
-        <Route path={urls.SIGNUP}
-               element={<SignUp create={createNotice}/>}/>
-        <Route path={urls.LOGIN}
-               element={<Login create={createNotice}/>}/>
+
       </Routes>
       <NoticeList notifications={noticeList}/>
 
