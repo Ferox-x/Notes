@@ -1,14 +1,12 @@
 .notice_div {
-  position: absolute;
-  right: 15px;
-  bottom: 80px;
-  width: 240px;
   min-height: 40px;
   border-radius: 10px;
   background: aquamarine;
   display: flex;
   flex-direction: row;
   padding: 5px;
+  margin-top: 5px;
+  overflow: hidden;
 }
 
 .notice_image {
