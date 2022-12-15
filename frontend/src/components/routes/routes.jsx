@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
+import AuthCheck from '../authentification/auth_check'
 import MainPage from '../main_page/main_page'
 import Task from '../task/task'
 import Project from '../project/project'
@@ -14,7 +15,6 @@ import DetailTask from '../task/personal_task/detail_task/detail_task'
 import SignUp from '../authentification/sign_up/sign_up'
 import Login from '../authentification/login/login'
 import NoticeList from '../notice/notice_list/notice_list'
-import AuthCheck from '../service/auth_check'
 
 
 function Content(props) {

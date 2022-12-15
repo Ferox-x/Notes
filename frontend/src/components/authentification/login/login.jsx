@@ -6,7 +6,6 @@ import ValidationTitle from '../validation_title/validation_title'
 import FormInputs from '../formInputs/formInputs'
 import Authentication from '../../../actions/auth'
 import {useNavigate} from 'react-router-dom'
-import './login.css'
 
 
 function Login(props) {
@@ -14,6 +13,8 @@ function Login(props) {
   const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
 
   function redirectMainPage() {
     navigate(urls.MAIN_PAGE)
@@ -32,8 +33,6 @@ function Login(props) {
   const styleTitle = {
     marginBottom: '80px'
   }
-
-  const navigate = useNavigate()
 
   function redirectSignUp() {
     navigate(urls.SIGNUP)
@@ -60,7 +59,6 @@ function Login(props) {
             style={{marginTop: '60px'}}
             className="submit-button"
             form="login_form"
-            type="submit"
             onClick={sendLoginForm}
           >
             Войти
@@ -69,7 +67,8 @@ function Login(props) {
         <div
           className="sign_up_link"
           style={styleLink}
-          onClick={redirectSignUp}>
+          onClick={redirectSignUp}
+        >
           Нет аккаунта? Зарегистрируйтесь!
         </div>
       </div>

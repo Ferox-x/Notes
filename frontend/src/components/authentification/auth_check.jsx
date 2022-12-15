@@ -3,7 +3,8 @@ import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 
 import urls from '../../urls'
-import {createNoticeServices} from './notifications_services'
+import {createNoticeServices} from '../service/notifications_services'
+
 
 function AuthCheck({component, create, ...props}) {
 

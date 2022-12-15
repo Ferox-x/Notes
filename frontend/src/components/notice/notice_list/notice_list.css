@@ -2,8 +2,7 @@
   position: absolute;
   right: 15px;
   bottom: 80px;
-  width: 240px;
-  height: 80%;
+  max-width: 240px;
   display: flex;
   flex-direction: column-reverse;
 }

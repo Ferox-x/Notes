@@ -22,8 +22,9 @@ function SignUp(props) {
     navigate(urls.LOGIN)
   }
 
-  function sendRegisterForm() {
-    let result = Authentication.registration(
+  function sendRegisterForm  () {
+
+    const result = Authentication.registration(
       username, phone, email, password, fullname,
       props.create
     )
@@ -61,14 +62,13 @@ function SignUp(props) {
                       placeholder={'Повторите пароль'} type={'password'}/>
           <button
             className="submit-button"
-            form="login_form" type="submit"
-            onClick={() => sendRegisterForm()
-            }>
+            form="login_form"
+            type="submit"
+            onClick={sendRegisterForm}>
             Регистрация
           </button>
           <div className="sign_up_link" style={styleLink}
-               onClick={redirectLogin}> Уже есть аккаунт?
-            Войти.
+               onClick={redirectLogin}>Уже есть аккаунт? Войти.
           </div>
         </div>
       </div>
