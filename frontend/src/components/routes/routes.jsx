@@ -19,44 +19,61 @@ import AuthCheck from '../service/auth_check'
 
 function Content(props) {
 
-    const [noticeList, setNoticeList] = useState([])
+  const [noticeList, setNoticeList] = useState([])
 
-    function deleteNotice(id) {
-        setNoticeList(noticeList.filter(n => n.key !== id))
-    }
+  function deleteNotice(id) {
+    const filtered = noticeList.filter(n => n.key !== id)
+    setNoticeList(filtered)
+  }
 
-    function createNotice(id, message) {
-        setNoticeList([...noticeList,
-            {
-                id: Date.now(),
-                message,
-                deleteNotice
-            }
-        ])
-    }
+  function createNotice(id, message) {
+    setNoticeList([...noticeList,
+      {
+        id,
+        message,
+        deleteNotice
+      }
+    ])
+  }
 
-    return (
-        <div>
-            <Routes>
-                <Route path={urls.MAIN_PAGE} element={<AuthCheck create={createNotice} component={<MainPage/>}/>}/>
-                <Route path={urls.TASK} element={<AuthCheck create={createNotice} component={<Task/>}/>}/>
-                <Route path={urls.PROJECT} element={<AuthCheck create={createNotice} component={<Project/>}/>}/>
-                <Route path={urls.NOTIFICATION}
-                    element={<AuthCheck create={createNotice} component={<Notifications/>}/>}/>
-                <Route path={urls.PROFILE} element={<AuthCheck create={createNotice} component={<User_profile/>}/>}/>
-                <Route path={urls.SETTINGS} element={<AuthCheck create={createNotice} component={<ProfileSettings/>}/>}/>
-                <Route path={urls.PUSH} element={<AuthCheck create={createNotice} component={<ProfilePush/>}/>}/>
-                <Route path={urls.EDIT} element={<AuthCheck create={createNotice} component={<EditProfile/>}/>}/>
-                <Route path={urls.PERSONAL_TASK} element={<AuthCheck create={createNotice} component={<PersonalTask/>}/>}/>
-                <Route path={'/task1'} element={<DetailTask/>}/>
-                <Route path={urls.SIGNUP}
-                    element={<SignUp create={createNotice}/>}/>
-                <Route path={urls.LOGIN}
-                    element={<Login create={createNotice}/>}/>
-            </Routes>
-            <NoticeList notifications={noticeList}/>
-        </div>
-    )
+  return (
+    <div>
+      <Routes>
+        <Route path={urls.MAIN_PAGE} element={<AuthCheck create={createNotice}
+                                                         component={
+                                                           <MainPage/>}/>}/>
+        <Route path={urls.TASK} element={<AuthCheck create={createNotice}
+                                                    component={<Task/>}/>}/>
+        <Route path={urls.PROJECT} element={<AuthCheck create={createNotice}
+                                                       component={
+                                                         <Project/>}/>}/>
+        <Route path={urls.NOTIFICATION}
+               element={<AuthCheck create={createNotice}
+                                   component={<Notifications/>}/>}/>
+        <Route path={urls.PROFILE} element={<AuthCheck create={createNotice}
+                                                       component={
+                                                         <User_profile/>}/>}/>
+        <Route path={urls.SETTINGS} element={<AuthCheck create={createNotice}
+                                                        component={
+                                                          <ProfileSettings/>}/>}/>
+        <Route path={urls.PUSH} element={<AuthCheck create={createNotice}
+                                                    component={
+                                                      <ProfilePush/>}/>}/>
+        <Route path={urls.EDIT} element={<AuthCheck create={createNotice}
+                                                    component={
+                                                      <EditProfile/>}/>}/>
+        <Route path={urls.PERSONAL_TASK}
+               element={<AuthCheck create={createNotice}
+                                   component={<PersonalTask/>}/>}/>
+        <Route path={'/task1'} element={<DetailTask/>}/>
+        <Route path={urls.SIGNUP}
+               element={<SignUp create={createNotice}/>}/>
+        <Route path={urls.LOGIN}
+               element={<Login create={createNotice}/>}/>
+      </Routes>
+      <NoticeList notifications={noticeList}/>
+    </div>
+  )
 }
 
 export default Content
