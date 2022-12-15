@@ -35,8 +35,8 @@ class Authentication {
                 'api/v1/users/me/'
             )
 
-            dispatch(setUser(user_response.data))
             if (user_response.status === 200) {
+                dispatch(setUser(user_response.data))
                 createNoticeServices(
                     create,
                     'Вы успешно вошли.'

@@ -5,7 +5,7 @@ import './notice.css'
 function Notice(props) {
 
   useEffect(() => {
-    const timer = setTimeout(props.deleteNotice, 1000, props.id)
+    const timer = setTimeout(props.deleteNotice, 5000, props.id)
     return () => clearTimeout(timer)
   })
 
