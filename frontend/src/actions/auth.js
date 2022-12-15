@@ -1,42 +1,50 @@
-import axios from "axios";
-import {setUser} from "../reducers/userReducer";
+import {setUser} from '../reducers/userReducer'
+import {axiosInstance, axiosInstanceAuth} from './axios_config'
+import {
+    createNoticeServices
+} from '../components/service/notifications_services'
 
 class Authentication {
 
     static async registration(username, phone_number,
-                              email, password, name, create) {
+        email, password, name, create) {
 
-        const response = await axios.post('http://127.0.0.1:8000/api/v1/users/',
+        const response = await axiosInstance.post('api/v1/users/',
             {username, phone_number, email, password, name})
 
         if (response.status === 201) {
-            let message = 'Аккаунт успешно создан, пожалуйста войдите'
-            let id = Date.now()
-            create(id, message)
+            createNoticeServices(
+                create,
+                'Аккаунт успешно создан, пожалуйста войдите.'
+            )
             return 'success'
         }
     }
 
     static login = (username, password, create) => {
+
         return async dispatch => {
-            const response = await axios.post(
-                'http://127.0.0.1:8000/api/v1/auth/token/login/',
+
+            const get_token = await axiosInstance.post(
+                'api/v1/auth/token/login/',
                 {username, password})
-            console.log(response.data)
-            dispatch(setUser(response.data.user))
-            localStorage.setItem('token', response.data.auth_token)
-            if (response.status === 200) {
-                let message = 'Вы успешно вошли.'
-                let id = Date.now()
-                create(id, message)
+
+            localStorage.setItem('token', get_token.data.auth_token)
+
+            const user_response = await axiosInstanceAuth.get(
+                'api/v1/users/me/'
+            )
+
+            dispatch(setUser(user_response.data))
+            if (user_response.status === 200) {
+                createNoticeServices(
+                    create,
+                    'Вы успешно вошли.'
+                )
                 return 'success'
             }
         }
-
-        }
-
-
-
+    }
 }
 
 

@@ -1,53 +1,53 @@
-import React, {useRef, useState} from "react";
-import './personal_task.css';
-import Title from "../../attribute/title/Title";
-import TaskTopic from "./input_personal_task_topic/input_personal_task_topic";
-import BtnProfile from "../../profile/btn_profile/btn_profile";
-import FormInputs from "../../authentification/formInputs/formInputs";
+import React, {useRef, useState} from 'react'
+import './personal_task.css'
+import Title from '../../attribute/title/Title'
+import TaskTopic from './input_personal_task_topic/input_personal_task_topic'
+import BtnProfile from '../../profile/btn_profile/btn_profile'
+import FormInputs from '../../authentification/formInputs/formInputs'
 
 
 function PersonalTask({create}) {
 
-  const [task, setTask] = useState({
-    title: '',
-    description: ''
-  })
+    const [task, setTask] = useState({
+        title: '',
+        description: ''
+    })
 
-  const addNewTask = (e) => {
-    e.preventDefault()
+    const addNewTask = (e) => {
+        e.preventDefault()
 
-    const newTask = {
-      ...task, id: Date.now()
+        const newTask = {
+            ...task, id: Date.now()
+        }
+        create(newTask)
+        setTask({title: '', description: ''})
     }
-    create(newTask)
-    setTask({title: '', description: ''})
-  }
 
-  return (
-    <div>
-      <Title title={{title: 'Личная задача'}}/>
-      <div className="personal-task__create">
-        <div className="personal-task__create-task">
-          <TaskTopic
-            onChange={e => setTask({...task, title: e.target.value})}
-            value={task.title}
-            placeholder="Тема задачи"
-            type="text"/>
-          <TaskTopic
-            onChange={e => setTask({...task, description: e.target.value})}
-            value={task.description}
-            placeholder="Описание"
-            type="text"/>
+    return (
+        <div>
+            <Title title={{title: 'Личная задача'}}/>
+            <div className="personal-task__create">
+                <div className="personal-task__create-task">
+                    <TaskTopic
+                        onChange={e => setTask({...task, title: e.target.value})}
+                        value={task.title}
+                        placeholder="Тема задачи"
+                        type="text"/>
+                    <TaskTopic
+                        onChange={e => setTask({...task, description: e.target.value})}
+                        value={task.description}
+                        placeholder="Описание"
+                        type="text"/>
+                </div>
+                {/*<div className="personal-task__add">*/}
+                {/*  <FormInputs placeholder={'Добавить дедлайн'}*/}
+                {/*              type={'date'}/>*/}
+                {/*</div>*/}
+                <BtnProfile onClick={addNewTask}>Готово</BtnProfile>
+            </div>
+
         </div>
-        {/*<div className="personal-task__add">*/}
-        {/*  <FormInputs placeholder={'Добавить дедлайн'}*/}
-        {/*              type={'date'}/>*/}
-        {/*</div>*/}
-        <BtnProfile onClick={addNewTask}>Готово</BtnProfile>
-      </div>
-
-    </div>
-  )
+    )
 }
 
-export default PersonalTask;
+export default PersonalTask
