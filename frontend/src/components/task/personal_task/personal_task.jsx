@@ -8,46 +8,43 @@ import FormInputs from '../../authentification/formInputs/formInputs'
 
 function PersonalTask({create}) {
 
-    const [task, setTask] = useState({
-        title: '',
-        description: ''
-    })
+  const [task, setTask] = useState({
+    title: '',
+    description: '',
+    deadline: ''
+  })
 
-    const addNewTask = (e) => {
-        e.preventDefault()
+  const addNewTask = (e) => {
 
-        const newTask = {
-            ...task, id: Date.now()
-        }
-        create(newTask)
-        setTask({title: '', description: ''})
-    }
+  }
 
-    return (
-        <div>
-            <Title title={{title: 'Личная задача'}}/>
-            <div className="personal-task__create">
-                <div className="personal-task__create-task">
-                    <TaskTopic
-                        onChange={e => setTask({...task, title: e.target.value})}
-                        value={task.title}
-                        placeholder="Тема задачи"
-                        type="text"/>
-                    <TaskTopic
-                        onChange={e => setTask({...task, description: e.target.value})}
-                        value={task.description}
-                        placeholder="Описание"
-                        type="text"/>
-                </div>
-                {/*<div className="personal-task__add">*/}
-                {/*  <FormInputs placeholder={'Добавить дедлайн'}*/}
-                {/*              type={'date'}/>*/}
-                {/*</div>*/}
-                <BtnProfile onClick={addNewTask}>Готово</BtnProfile>
-            </div>
-
+  return (
+    <div>
+      <Title title={{title: 'Личная задача'}}/>
+      <div className="personal-task__create">
+        <div className="personal-task__create-task">
+          <TaskTopic
+            onChange={e => setTask({...task, title: e.target.value})}
+            value={task.title}
+            placeholder="Тема задачи"
+            type="text"/>
+          <TaskTopic
+            onChange={e => setTask({...task, description: e.target.value})}
+            value={task.description}
+            placeholder="Описание"
+            type="text"/>
         </div>
-    )
+        <div className="personal-task__add">
+          <FormInputs
+            onChange={e => setTask({...task, deadline: e.target.value})}
+            placeholder={'Добавить дедлайн'}
+            type={'date'}/>
+        </div>
+        <BtnProfile onClick={addNewTask}>Готово</BtnProfile>
+      </div>
+
+    </div>
+  )
 }
 
 export default PersonalTask

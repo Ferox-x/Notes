@@ -36,7 +36,7 @@ class TaskServices {
     _createDefaultTask() {
         this.defaultTask.title = this.title
         this.defaultTask.description = this.description
-        return data
+        return this.defaultTask
         // const response = axiosInstanceAuth.post('api/v1/note')
     }
 
