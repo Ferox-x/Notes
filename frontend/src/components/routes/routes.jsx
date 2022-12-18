@@ -13,6 +13,8 @@ import urls from '../../urls'
 import SignUp from '../authentification/sign_up'
 import Login from '../authentification/login'
 import NoticeList from '../notice/notice_list/notice_list'
+import CreateTask from "./create_task/create_task";
+import BoardTask from "./create_task/types/boardTask";
 
 
 function Content(props) {
@@ -60,6 +62,10 @@ function Content(props) {
         <Route path={urls.EDIT} element={<AuthCheck create={createNotice}
                                                     component={
                                                       <EditProfile/>}/>}/>
+        {/*<Route path={urls.CREATE_TASK} element={<AuthCheck create={createNotice} component={<CreateTask/>}/> }/>*/}
+        <Route path={urls.CREATE_TASK}
+               element={<BoardTask/>}/>
+
         <Route path={urls.SIGNUP}
                element={<SignUp create={createNotice}/>}/>
         <Route path={urls.LOGIN}

@@ -1,0 +1,19 @@
+.create-task-container {
+  margin-top: 25px;
+  padding: 5px;
+}
+.create-task-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.create-task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
