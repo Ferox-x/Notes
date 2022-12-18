@@ -186,7 +186,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-LOGIN_URL = 'users:login'
+LOGIN_URL = 'users:styles'
 LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'users.User'
 

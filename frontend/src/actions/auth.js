@@ -2,7 +2,7 @@ import {setUser} from '../reducers/userReducer'
 import {axiosInstance, axiosInstanceAuth} from './axios_config'
 import {
     createNoticeServices
-} from '../components/service/notifications_services'
+} from '../services/notifications_services'
 
 class Authentication {
 

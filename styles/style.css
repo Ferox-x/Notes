@@ -288,7 +288,7 @@ input::placeholder {
 
 /* end-filled-content-block */
 
-/* login-page styles */
+/* styles-page styles */
 
 
 .login-page {
@@ -296,7 +296,7 @@ input::placeholder {
   padding: 60px 0px 116px 0px;
 }
 
-.login-content {
+.form {
   min-height: 380px;
   display: flex;
   flex-direction: column;
@@ -389,7 +389,7 @@ input::placeholder {
   visibility: collapse;
 }
 
-/* end login-page styles end */
+/* end styles-page styles end */
 .popup {
   position: fixed;
   width: 100%;

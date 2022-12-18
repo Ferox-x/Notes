@@ -1,0 +1,32 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  font-family: 'Roboto', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-button {
+  padding: 12px;
+  width: 174px;
+  border: 0;
+  align-self: center;
+  background: #4329AA;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-size: 12px;
+}
+
+.link {
+  padding: 5px;
+  font-size: 11px;
+  color: #000000;
+  opacity: 0.5;
+  text-decoration: underline;
+}
