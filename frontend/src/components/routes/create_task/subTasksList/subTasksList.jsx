@@ -1,10 +1,13 @@
 import React from 'react';
 import CheckboxInput from "../../../UX/checkboxInput";
 
+import '../styles/subTaskList.css'
+
+
 
 function SubTasksList({subtasks}) {
   return (
-    <div>
+    <div className={'checkbox-inputs-container'}>
       {subtasks.map((subtask, index) =>
           <CheckboxInput
             style={{
