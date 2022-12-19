@@ -2,10 +2,6 @@ import React, {useState} from 'react';
 
 import DefaultTask from "./types/default_task";
 
-import Title from "../../UX/title";
-import Back from "../../UX/back";
-import Input from "../../UX/input";
-import Button from "../../UX/button";
 
 import './styles/create_task.css'
 

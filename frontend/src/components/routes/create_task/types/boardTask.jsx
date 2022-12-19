@@ -15,12 +15,11 @@ function BoardTask(props) {
   const [subtasks, setSubtasks] = useState([])
 
   const addNewSubtask = (e) => {
-    e.preventDefault()
     const newSubtask = {
       id: Date.now(),
-      title
+      subTitle: ''
     }
-    setSubtasks([subtasks, newSubtask])
+    setSubtasks([...subtasks, newSubtask])
   }
 
   return (
@@ -41,19 +40,21 @@ function BoardTask(props) {
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
-        <SubTasksList subtasks={subtasks}/>
-
         <Input
           style={{
             marginBottom: '30px'
           }}
           type={'date'}
         />
-        <AddSubtask />
+        <SubTasksList
+          subtasks={subtasks}
+        />
+        <AddSubtask
+          onclick={addNewSubtask}
+        />
       </div>
       <Button
         children={'Создать'}
-        onClick={addNewSubtask}
 
       />
     </div>

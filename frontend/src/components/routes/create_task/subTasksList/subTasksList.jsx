@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckboxInput from "../../../UX/checkboxInput";
 
+
 function SubTasksList({subtasks}) {
   return (
     <div>
@@ -9,7 +10,7 @@ function SubTasksList({subtasks}) {
             style={{
               marginBottom: '30px'
             }}
-            subtask={subtask}
+            title={subtask.subTitle}
             key={subtask.id}
           />
         )}
