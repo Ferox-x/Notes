@@ -1,9 +1,9 @@
 import React from 'react';
 import './add_subtask.css'
 
-function AddSubtask({setValue, ...props}) {
+function AddSubtask(...props) {
   return (
-    <div className={'subtask-text'}>
+    <div className={'subtask-text'} >
       Добавить подзадачу
     </div>
   );

@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from './styles/checkboxInput.module.css'
 
-function CheckboxInput({id, name, value, children, ...props}) {
+function CheckboxInput(props) {
   return (
-    <label className={styles.customCheckbox} {...props}>
+    <label className={styles.customCheckbox}>
       <input
         type={'checkbox'}
-        name={name}
-        value={value}
       />
-      <span>{children}</span>
+      <p>{props.subtask.title}</p>
     </label>
 
 
