@@ -10,7 +10,6 @@ function SubTasksList({subtasks}) {
             style={{
               marginBottom: '30px'
             }}
-            title={subtask.subTitle}
             key={subtask.id}
             index={index}
           />
