@@ -69,10 +69,10 @@ function Content(props) {
         <Route path={urls.EDIT} element={<AuthCheck create={createNotice}
                                                     component={
                                                       <EditProfile/>}/>}/>
-        {/*<Route path={urls.CREATE_TASK} element={<AuthCheck create={createNotice} component={<CreateTask/>}/> }/>*/}
-        <Route path={urls.CREATE_TASK}
-               element={<CreateTask/>}
-        />
+        <Route path={urls.CREATE_TASK} element={<AuthCheck create={createNotice} component={<CreateTask/>}/> }/>
+        {/*<Route path={urls.CREATE_TASK}*/}
+        {/*       element={<CreateTask/>}*/}
+        {/*/>*/}
         <Route
           path={urls.TASK_COMPLETED}
           element={<TaskCompleted/>}

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import DefaultTaskClass from '../../../../actions/task_services'
 
 import Title from "../../../UX/title";
 import Back from "../../../UX/back";
@@ -45,6 +46,7 @@ function DefaultTask({displaySet, ...props}) {
         />
       </div>
       <Button
+        onClick={()=> new DefaultTaskClass(title, description, date).sendTask()}
         children={'Создать'}
       />
     </div>

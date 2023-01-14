@@ -1,9 +1,15 @@
 import React from 'react'
 import styles from './styles/button.module.css'
 
-function Button({children, ...props}) {
+function Button({children, onClick,...props}) {
     return (
-        <button {...props} className={styles.button}>{children}</button>
+        <button
+          {...props}
+          onClick={()=> onClick()}
+          className={styles.button}
+        >
+          {children}
+        </button>
     )
 }
 
