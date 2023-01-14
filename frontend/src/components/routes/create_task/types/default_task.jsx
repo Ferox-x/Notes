@@ -42,6 +42,7 @@ function DefaultTask({displaySet, ...props}) {
         />
         <Input
           type={'date'}
+          value={date}
           setValue={setDate}
         />
       </div>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './task.css'
 import {getTasks} from '../../../actions/task_services'
 import Title from '../../UX/title'
@@ -6,11 +6,16 @@ import TaskCompleted from './task_completed/task_completed'
 
 
 function Task() {
-  const [tasks, setTasks] = useState([])
 
-  getTasks().then(tasks => {
+  const [tasks, setTasks] = useState([])
+  useEffect(()=> {
+    fetchTasks()
+  }, [])
+  async function fetchTasks () {
+    const tasks =  await getTasks()
     setTasks(tasks)
-  })
+  }
+
 
   return (
     <div>

@@ -1,9 +1,7 @@
-import {response} from 'express'
 import {axiosInstanceAuth} from './axios_config'
 
-export async function getTasks () {
-    const response = await axiosInstanceAuth.get('api/v2/note')
-    return response.data
+export async function getTasks (callback) {
+    return (await axiosInstanceAuth.get('api/v2/note/')).data
 }
 
 

@@ -13,9 +13,7 @@ import urls from '../../urls'
 import SignUp from '../authentification/sign_up'
 import Login from '../authentification/login'
 import NoticeList from '../notice/notice_list/notice_list'
-import CreateTask from "./create_task/create_task";
-import BoardTask from "./create_task/types/boardTask";
-import SelectTaskType from "./create_task/selectTaskType/select_task_type";
+import CreateTask from "./create_task/create_task"
 import TaskCompleted from "./task/task_completed/task_completed";
 import NotificationFilled
   from "./notifications/notification_filled/notification_filled";

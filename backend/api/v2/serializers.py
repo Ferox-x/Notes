@@ -41,6 +41,6 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'id', 'data', 'type', 'status',
-            'deadline', 'created_at', 'updated_at'
+            'deadline', 'created_at', 'updated_at', 'user'
         )
         model = Note
