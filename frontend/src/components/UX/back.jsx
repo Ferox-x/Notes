@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './styles/back.module.css'
 
-function Back(props) {
+function Back({displaySet, displayValue, ...props}) {
+  function changeDisplay() {
+    displaySet(displayValue)
+  }
+
   return (
-    <div className={styles.back}></div>
+    <div className={styles.back} onClick={changeDisplay}></div>
   );
 }
 

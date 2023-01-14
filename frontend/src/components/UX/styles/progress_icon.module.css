@@ -1,0 +1,6 @@
+.progress_icon {
+  background-image: url(../../../img/task_status/in_progress.svg);
+  background-repeat: no-repeat;
+  height: 8px;
+  width: 8px;
+}

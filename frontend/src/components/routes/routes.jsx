@@ -15,6 +15,13 @@ import Login from '../authentification/login'
 import NoticeList from '../notice/notice_list/notice_list'
 import CreateTask from "./create_task/create_task";
 import BoardTask from "./create_task/types/boardTask";
+import SelectTaskType from "./create_task/selectTaskType/select_task_type";
+import TaskCompleted from "./task/task_completed/task_completed";
+import NotificationFilled
+  from "./notifications/notification_filled/notification_filled";
+import ProjectFilled from "./project/project_filled/project_filled";
+import TaskProject from "./task/task_project/task_project";
+import EditTask from "./task/edit_task/edit_task";
 
 
 function Content(props) {
@@ -64,8 +71,28 @@ function Content(props) {
                                                       <EditProfile/>}/>}/>
         {/*<Route path={urls.CREATE_TASK} element={<AuthCheck create={createNotice} component={<CreateTask/>}/> }/>*/}
         <Route path={urls.CREATE_TASK}
-               element={<BoardTask/>}/>
-
+               element={<CreateTask/>}
+        />
+        <Route
+          path={urls.TASK_COMPLETED}
+          element={<TaskCompleted/>}
+        />
+        <Route
+          path={urls.NOTIFICATION_FILLED}
+          element={<NotificationFilled/>}
+        />
+        <Route
+          path={urls.PROJECT_FILLED}
+          element={<ProjectFilled/>}
+        />
+        <Route
+          path={urls.TASK_PROJECT}
+          element={<TaskProject/>}
+        />
+        <Route
+          path={urls.EDIT_TASK}
+          element={<EditTask/>}
+        />
         <Route path={urls.SIGNUP}
                element={<SignUp create={createNotice}/>}/>
         <Route path={urls.LOGIN}

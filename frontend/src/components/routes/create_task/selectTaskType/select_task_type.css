@@ -1,0 +1,44 @@
+.personal-task-select__type {
+  width: 297px;
+  height: 296px;
+  margin: 0 auto;
+}
+
+.personal-task-select__type-task {
+  width: 297px;
+  height: 230px;
+  background: #9B89E1;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.personal-task-select__type-task-note {
+  width: 234px;
+  height: 60px;
+  margin-left: 10px;
+  padding-top: 25px;
+  margin-bottom: 24px;
+}
+
+.personal-task-select__type-task-check-text {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: justify;
+  color: white;
+  opacity: 0.7;
+  margin-left: 28px;
+  width: 234px;
+  height: 35px;
+}
+
+.personal-task-select__task {
+  width: 297px;
+  height: 43px;
+  background: #4329AA;
+  border-radius: 20px 20px 0px 0px;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 35px;
+  padding-top: 13px;
+}

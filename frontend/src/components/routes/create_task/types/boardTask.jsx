@@ -9,7 +9,7 @@ import Button from "../../../UX/button";
 import SubTasksList from "../subTasksList/subTasksList";
 
 
-function BoardTask(props) {
+function BoardTask({displaySet, ...props}) {
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
   const [subtasks, setSubtasks] = useState([])
@@ -28,7 +28,10 @@ function BoardTask(props) {
         <Title
           title={'Личная задача'}
         />
-        <Back/>
+        <Back
+          displaySet={displaySet}
+          displayValue={'typeChoice'}
+        />
       </div>
       <div className="create-task-form">
         <Input

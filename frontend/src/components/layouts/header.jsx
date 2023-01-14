@@ -15,7 +15,7 @@ function Header (){
                         <NavLink to={urls.NOTIFICATION}
                             className="header-mobile__notification"></NavLink>
                         <div className="maketask-button">
-                            <NavLink to={urls.PERSONAL_TASK} className="maketask-button__label">
+                            <NavLink to={urls.CREATE_TASK} className="maketask-button__label">
                                 <p className="maketask-button__text">Создать
                     задачу</p>
                                 <div

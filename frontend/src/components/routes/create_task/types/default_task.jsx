@@ -6,7 +6,7 @@ import Input from "../../../UX/input";
 import Button from "../../../UX/button";
 
 
-function DefaultTask(props) {
+function DefaultTask({displaySet, ...props}) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [date, setDate] = useState('')
@@ -17,7 +17,10 @@ function DefaultTask(props) {
         <Title
           title={'Личная задача'}
         />
-        <Back/>
+        <Back
+          displaySet={displaySet}
+          displayValue={'typeChoice'}
+        />
       </div>
       <div className="create-task-form">
         <Input
@@ -25,12 +28,14 @@ function DefaultTask(props) {
             marginBottom: '20px'
           }}
           placeholder={'Тема задачи'}
+          value={title}
           setValue={setTitle}
         />
         <Input
           style={{
             marginBottom: '20px'
           }}
+          value={description}
           placeholder={'Описание'}
           setValue={setDescription}
         />

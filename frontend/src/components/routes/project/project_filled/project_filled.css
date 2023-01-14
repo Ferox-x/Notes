@@ -1,0 +1,79 @@
+.project-block {
+  width: 285px;
+  height: 82px;
+  background: #9B89E1;
+  border-radius: 10px;
+  padding: 5px 12px 12px 8px;
+  margin: 0 auto;
+}
+
+.project-block__top {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 6px;
+}
+
+.project-block__title {
+  font-weight: 700;
+  font-size: 12px;
+  color: white;
+}
+
+.project-block__middle {
+  display: flex;
+  margin-bottom: 22px;
+}
+
+.project-block__middle-executor {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-right: 16px;
+  align-items: center;
+}
+
+.project-block__middle-executor-title {
+  margin-right: 2px;
+  margin-left: 7px;
+}
+
+.project-block__middle-executor-name {
+  font-weight: 400;
+  font-size: 8px;
+  color: white;
+}
+
+.project-block__middle-progress {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.project-block__middle-progress-text {
+  font-weight: 400;
+  font-size: 8px;
+  color: white;
+  margin-right: 4px;
+}
+
+.project-block__bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.project-block__bottom-info {
+  font-weight: 400;
+  font-size: 8px;
+  color: #ffffff;
+}
+
+.project-block__bottom-date {
+  color: #d1ffbc;
+}
+
+.project-block__bottom-author {
+  display: flex;
+}
