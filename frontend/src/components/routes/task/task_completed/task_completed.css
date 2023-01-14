@@ -1,11 +1,9 @@
 .task-block {
   width: 288px;
-  height: 265px;
   background: #9B89E1;
   border-radius: 10px;
   margin: 0 auto;
   padding: 15px 8px 15px 8px;
-
 }
 
 .task-block__top {
@@ -22,7 +20,7 @@
 }
 
 .task-block__text {
-  height: 144px;
+  max-width: 270px;
   font-weight: 400;
   font-size: 10px;
   color: #FFFFFF;
