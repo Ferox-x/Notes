@@ -24,6 +24,8 @@ const TASK_PROJECT = '/task_project'
 
 const EDIT_TASK = '/edit_task'
 
+const BOARD_TASK = '/board_task'
+
 const urls = {
     'MAIN_PAGE': MAIN_PAGE,
     'PROFILE': PROFILE,
@@ -41,7 +43,8 @@ const urls = {
     'NOTIFICATION_FILLED': NOTIFICATION_FILLED,
     'PROJECT_FILLED': PROJECT_FILLED,
     'TASK_PROJECT': TASK_PROJECT,
-    'EDIT_TASK': EDIT_TASK
+    'EDIT_TASK': EDIT_TASK,
+    'BOARD_TASK': BOARD_TASK
 }
 
 export default urls

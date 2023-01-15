@@ -20,6 +20,7 @@ import NotificationFilled
 import ProjectFilled from "./project/project_filled/project_filled";
 import TaskProject from "./task/task_project/task_project";
 import EditTask from "./task/edit_task/edit_task";
+import BoardTaskFilled from "./task/board_task_filled/board_task_filled";
 
 
 function Content(props) {
@@ -67,10 +68,16 @@ function Content(props) {
         <Route path={urls.EDIT} element={<AuthCheck create={createNotice}
                                                     component={
                                                       <EditProfile/>}/>}/>
-        <Route path={urls.CREATE_TASK} element={<AuthCheck create={createNotice} component={<CreateTask/>}/> }/>
+        <Route path={urls.CREATE_TASK}
+               element={<AuthCheck create={createNotice}
+                                   component={<CreateTask/>}/>}/>
         {/*<Route path={urls.CREATE_TASK}*/}
         {/*       element={<CreateTask/>}*/}
         {/*/>*/}
+        <Route
+          path={urls.BOARD_TASK}
+          element={<BoardTaskFilled/>}
+        />
         <Route
           path={urls.TASK_COMPLETED}
           element={<TaskCompleted/>}
