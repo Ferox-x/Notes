@@ -8,6 +8,7 @@ function MainPage() {
   return (
     <div>
       <Title
+        style={{paddingTop: '20px'}}
         title={'Главная'}
       />
       <BlockContent block={{

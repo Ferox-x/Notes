@@ -35,6 +35,7 @@ function BoardTask({displaySet, createNotice, ...props}) {
     <div className={'create-task-container'}>
       <div className="create-task-title">
         <Title
+          style={{paddingLeft: '20px'}}
           title={'Личная задача'}
         />
         <Back
@@ -69,6 +70,7 @@ function BoardTask({displaySet, createNotice, ...props}) {
         />
       </div>
       <Button
+        style={{marginLeft: '2  0px'}}
         children={'Создать'}
         onClick={sendSubTasks}
       />

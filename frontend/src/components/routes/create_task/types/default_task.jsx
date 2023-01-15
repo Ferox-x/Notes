@@ -16,6 +16,7 @@ function DefaultTask({displaySet, createNotice, ...props}) {
     <div className={"create-task-container"}>
       <div className="create-task-title">
         <Title
+          style={{paddingLeft: '20px'}}
           title={'Личная задача'}
         />
         <Back
@@ -47,6 +48,7 @@ function DefaultTask({displaySet, createNotice, ...props}) {
         />
       </div>
       <Button
+        style={{marginLeft: '20px'}}
         onClick={()=> {
           new DefaultTaskClass(title, description, date).sendTask()
           createNotice(Date.now(), 'Задача успешно создана.')
