@@ -49,7 +49,7 @@ function DefaultTask({displaySet, createNotice, ...props}) {
       <Button
         onClick={()=> {
           new DefaultTaskClass(title, description, date).sendTask()
-          createNotice(Date.now(), 'Задача успешно создана.')
+          createNotice(Date.now(), 'Задача успешно создана.', 'green')
           setTitle('')
           setDate('')
           setDescription('')

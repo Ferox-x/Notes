@@ -15,13 +15,14 @@ class Authentication {
         if (response.status === 201) {
             createNoticeServices(
                 create,
-                'Аккаунт успешно создан, пожалуйста войдите.'
+                'Аккаунт успешно создан, пожалуйста войдите.',
+                'green'
             )
             return 'success'
         }
     }
 
-    static login = (username, password, create) => {
+    static login = (username, password, create, redirect) => {
 
         return async dispatch => {
 
@@ -40,8 +41,10 @@ class Authentication {
                 dispatch(setUser(user))
                 createNoticeServices(
                     create,
-                    'Вы успешно вошли.'
+                    'Вы успешно вошли.',
+                    'green'
                 )
+                redirect()
                 return 'success'
             }
         }

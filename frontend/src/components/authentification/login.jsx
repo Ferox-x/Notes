@@ -26,9 +26,8 @@ function Login(props) {
   }
 
   function sendLoginForm() {
-    const result = Authentication.login(username, password, props.create)
+    const result = Authentication.login(username, password, props.create, redirectMainPage)
     dispatch(result)
-    redirectMainPage()
   }
 
   function redirectSignUp() {

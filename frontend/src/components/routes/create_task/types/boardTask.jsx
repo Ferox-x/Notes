@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import {
+  createNoticeServices
+} from '../../../../services/notifications_services'
 
 import AddSubtask from '../add_subtask/add_subtask'
 
@@ -25,7 +28,7 @@ function BoardTask({displaySet, createNotice, ...props}) {
 
   function sendSubTasks() {
     new BoardTaskClass(title, date, subtasks).sendTask()
-    createNotice(Date.now(), 'Доска задач успешно создана.')
+    createNoticeServices(createNotice, 'Доска задач успешно создана.', 'green')
     setTitle('')
     setDate('')
     setSubtasks([])
