@@ -8,6 +8,7 @@ import Input from "../../../UX/input";
 import Button from "../../../UX/button";
 import SubTasksList from "../subTasksList/subTasksList";
 
+import {BoardTaskClass} from '../../../../actions/task_services'
 
 function BoardTask({displaySet, ...props}) {
   const [title, setTitle] = useState('')
@@ -20,6 +21,10 @@ function BoardTask({displaySet, ...props}) {
       subTitle: ''
     }
     setSubtasks([...subtasks, newSubtask])
+  }
+
+  function sendSubTasks() {
+    new BoardTaskClass(title, date, subtasks).sendTask()
   }
 
   return (
@@ -47,9 +52,12 @@ function BoardTask({displaySet, ...props}) {
           style={{
             marginBottom: '30px'
           }}
+          value={date}
+          setValue={setDate}
           type={'date'}
         />
         <SubTasksList
+          setValue={setSubtasks}
           subtasks={subtasks}
         />
         <AddSubtask
@@ -58,7 +66,7 @@ function BoardTask({displaySet, ...props}) {
       </div>
       <Button
         children={'Создать'}
-
+        onClick={sendSubTasks}
       />
     </div>
 

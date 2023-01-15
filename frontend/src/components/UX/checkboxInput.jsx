@@ -1,11 +1,24 @@
 import React, {useState} from 'react'
 import Input from './input'
-import styles from  './styles/checkboxInput.module.css'
+import styles from './styles/checkboxInput.module.css'
 
 
-function CheckboxInput({index, ...props}) {
+function CheckboxInput({index, key_id, setValue, value,subtasks, ...props}) {
 
-  const [subTask, setSubTask] = useState('')
+  function changeSubtitle(title) {
+    setValue(subtasks.map((task) => {
+        if (task.id === key_id) {
+          return {
+            id: task.id,
+            subTitle: title
+          }
+        }
+        else {
+          return task
+        }
+      }
+    ))
+  }
 
   return (
     <div>
@@ -17,8 +30,8 @@ function CheckboxInput({index, ...props}) {
         name={'subtask' + index}
         type={'text'}
         placeholder={'Подзадача'}
-        value={subTask}
-        onChange={e => setSubTask(e.target.value)}
+        value={value}
+        setValue={changeSubtitle}
       />
     </div>
   )

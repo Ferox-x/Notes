@@ -1,15 +1,16 @@
 import React from 'react';
 import './styles/checkbox.css'
 
-function CheckBox(props) {
+function CheckBox({title, id,...props}) {
+
   return (
     <div style={{marginBottom: '5px'}}>
       <input
         className="custom-checkbox"
-        id="myCheckbox"
+        id={id}
         type="checkbox"/>
-      <label htmlFor="myCheckbox" className={"label"}>
-        Checkbox
+      <label htmlFor={id} className={"label"}>
+        {title}
       </label>
     </div>
   );

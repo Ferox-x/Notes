@@ -5,7 +5,7 @@ import '../styles/subTaskList.css'
 
 
 
-function SubTasksList({subtasks}) {
+function SubTasksList({subtasks, setValue, ...props}) {
   return (
     <div className={'checkbox-inputs-container'}>
       {subtasks.map((subtask, index) =>
@@ -13,6 +13,10 @@ function SubTasksList({subtasks}) {
             style={{
               marginBottom: '30px'
             }}
+            subtasks={subtasks}
+            setValue={setValue}
+            key_id={subtask.id}
+            value={subtask.value}
             key={subtask.id}
             index={index}
           />

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import DefaultTaskClass from '../../../../actions/task_services'
+import {DefaultTaskClass} from '../../../../actions/task_services'
 
 import Title from "../../../UX/title";
 import Back from "../../../UX/back";

@@ -8,8 +8,38 @@ export function deleteTask (taskId) {
     axiosInstanceAuth.delete('api/v2/note/' + taskId + '/')
 }
 
+export class BoardTaskClass {
+    constructor(title, deadline, boardTasks) {
+        this.status = 1
+        this.title = title
+        this.deadline = deadline
+        this.type = 2
+        this.boardTasks = boardTasks
+    }
 
-class DefaultTaskClass {
+    #createData() {
+        return {
+            title: this.title,
+            boardTasks: this.boardTasks,
+        }
+    }
+
+    #createJSON() {
+        return {
+            data: this.#createData(),
+            type: this.type,
+            status: this.status,
+            deadline: this.deadline
+        }
+    }
+
+    sendTask() {
+        axiosInstanceAuth.post('api/v2/note/', this.#createJSON())
+    }
+}
+
+
+export class DefaultTaskClass {
     constructor(title, description, deadline) {
         this.status = 1
         this.title = title
@@ -38,5 +68,3 @@ class DefaultTaskClass {
         axiosInstanceAuth.post('api/v2/note/', this.#createJSON())
     }
 }
-
-export default DefaultTaskClass

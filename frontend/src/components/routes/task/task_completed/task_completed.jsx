@@ -13,7 +13,6 @@ function TaskCompleted({data, deadline, status, type, id, value, setValue, ...pr
     setValue(value.filter(task => task.id !== id))
   }
   const date = moment(deadline).format('L')
-  console.log(date)
 
   return (
     <div className="task-block">
