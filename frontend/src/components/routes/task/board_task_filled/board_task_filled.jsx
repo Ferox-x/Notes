@@ -8,6 +8,7 @@ import Delete from '../../../UX/delete_icon'
 import CheckBox from '../../../UX/CheckBox'
 
 function BoardTaskFilled({
+  createNotice,
   boardTasks,
   title,
   deadline,
@@ -22,10 +23,11 @@ function BoardTaskFilled({
   function removeTask() {
     deleteTask(id)
     setValue(value.filter(task => task.id !== id))
+    createNotice(Date.now(), 'Задача успешно удалена.')
   }
 
   const date = moment(deadline).format('L')
-  console.log(boardTasks)
+
   return (
     <div className="board-task-block">
       <div className="board-task-block__top">

@@ -49,7 +49,7 @@ function Content(props) {
                                                          component={
                                                            <MainPage/>}/>}/>
         <Route path={urls.TASK} element={<AuthCheck create={createNotice}
-                                                    component={<Task/>}/>}/>
+                                                    component={<Task createNotice={createNotice}/>}/>}/>
         <Route path={urls.PROJECT} element={<AuthCheck create={createNotice}
                                                        component={
                                                          <Project/>}/>}/>
@@ -70,7 +70,7 @@ function Content(props) {
                                                       <EditProfile/>}/>}/>
         <Route path={urls.CREATE_TASK}
                element={<AuthCheck create={createNotice}
-                                   component={<CreateTask/>}/>}/>
+                                   component={<CreateTask createNotice={createNotice}/>}/>}/>
         {/*<Route path={urls.CREATE_TASK}*/}
         {/*       element={<CreateTask/>}*/}
         {/*/>*/}

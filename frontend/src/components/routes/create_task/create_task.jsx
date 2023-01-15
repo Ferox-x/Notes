@@ -8,7 +8,7 @@ import BoardTask from "./types/boardTask";
 import SelectTaskType from "./selectTaskType/select_task_type";
 
 
-function CreateTask(props) {
+function CreateTask({createNotice, ...props}) {
 
 
   const [display, setDisplay] = useState('typeChoice')
@@ -20,10 +20,10 @@ function CreateTask(props) {
       component = <SelectTaskType displaySet={setDisplay}/>
       break
     case 'defaultTask':
-      component = <DefaultTask displaySet={setDisplay}/>
+      component = <DefaultTask createNotice={createNotice} displaySet={setDisplay}/>
       break
     case 'boardTask':
-      component = <BoardTask displaySet={setDisplay}/>
+      component = <BoardTask createNotice={createNotice} displaySet={setDisplay}/>
       break
   }
 
