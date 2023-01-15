@@ -1,10 +1,20 @@
+import moment from 'moment'
 import React from 'react';
 import './task_completed.css'
+import {deleteTask} from '../../../../actions/task_services'
 import Back from "../../../UX/back";
 import Delete from "../../../UX/delete_icon";
 import Edit from "../../../UX/edit_icon";
 
-function TaskCompleted({data, deadline, status, type, ...props}) {
+function TaskCompleted({data, deadline, status, type, id, value, setValue, ...props}) {
+
+  function removeTask () {
+    deleteTask(id)
+    setValue(value.filter(task => task.id !== id))
+  }
+  const date = moment(deadline).format('L')
+  console.log(date)
+
   return (
     <div className="task-block">
       <div className="task-block__top">
@@ -20,11 +30,12 @@ function TaskCompleted({data, deadline, status, type, ...props}) {
       <div className="task-block__bottom">
         <div className="task-block__bottom-info">Вчера</div>
         <div
-          className="task-block__bottom-info task-block__bottom-date">{deadline}
+          className="task-block__bottom-info task-block__bottom-date">{date}
         </div>
         <div className="task-block__bottom-delete">
           <Delete/>
           <div
+            onClick={removeTask}
             className="task-block__bottom-info task-block__bottom-delete-task">
             Удалить задачу
           </div>

@@ -36,7 +36,8 @@ class Authentication {
             )
 
             if (user_response.status === 200) {
-                dispatch(setUser(user_response.data))
+                const user = user_response.data
+                dispatch(setUser(user))
                 createNoticeServices(
                     create,
                     'Вы успешно вошли.'

@@ -1,7 +1,11 @@
 import {axiosInstanceAuth} from './axios_config'
 
-export async function getTasks (callback) {
+export async function getTasks () {
     return (await axiosInstanceAuth.get('api/v2/note/')).data
+}
+
+export function deleteTask (taskId) {
+    axiosInstanceAuth.delete('api/v2/note/' + taskId + '/')
 }
 
 

@@ -18,20 +18,23 @@ function Task() {
 
 
   return (
-    <>
+    <div>
       <Title title={'Задачи'} style={{padding: '20px'}}/>
       <div className="tasks">
         {tasks.map(task =>
         <TaskCompleted
+          key={task.id}
+          id={task.id}
           status={task.status}
           type={task.type}
           deadline={task.deadline}
           data={task.data}
+          value={tasks}
+          setValue={setTasks}
         />
       )}
       </div>
-
-    </>
+    </div>
   )
 }
 
