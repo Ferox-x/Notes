@@ -1,49 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+
 .container {
   margin: 0 auto;
   position: relative;
   width: 320px;
-  height: 568px;
   background-color: #FFF;
+  padding: 4px 8px 4px;
 }
+
+.content-container {
+  height: 488px;
+}
+
 body {
+  height: 100%;
   background-color: #a598e2;
 }
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
-
-/* fonts */
-@font-face {
-  font-family: 'Roboto Bold';
-  src: url('fonts/Roboto-Bold.woff');
-  src: local('Roboto Bold'), local('Roboto-Bold'),
-  url('fonts/RobotoBold.woff2') format('woff2'),
-  url('fonts/Roboto-Bold.woff') format('woff');
-
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/*@font-face {*/
-/*  font-family: 'Roboto';*/
-/*  src: url('Roboto-Regular.woff');*/
-/*  src: local('Roboto'), local('Roboto-Regular'),*/
-/*  url('fonts/RobotoRegular.woff2') format('woff2'),*/
-/*  url('Roboto-Regular.woff') format('woff');*/
-/*  font-weight: 400;*/
-/*  font-style: normal;*/
-/*  font-display: swap;*/
-/*}*/
-
-/*end fonts*/
 
 * {
   margin: 0;

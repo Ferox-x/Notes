@@ -30,3 +30,4 @@ class NoteViewSet(viewsets.ModelViewSet):
             status=status.HTTP_201_CREATED,
             headers=headers
         )
+

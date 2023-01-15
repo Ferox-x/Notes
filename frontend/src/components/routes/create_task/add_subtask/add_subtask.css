@@ -1,0 +1,11 @@
+.subtask-text {
+  font-family: 'Century Gothic', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  color: #4329AA;
+  background-image: url(../../../../img/add_task/+.svg);
+  background-repeat: no-repeat ;
+  padding-left: 15px;
+}
+

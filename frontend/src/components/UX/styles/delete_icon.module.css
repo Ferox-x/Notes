@@ -1,0 +1,6 @@
+.delete {
+  background-image: url(../../../img/task_detail/delete.svg);
+  background-repeat: no-repeat;
+  height: 11px;
+  width: 11px;
+}

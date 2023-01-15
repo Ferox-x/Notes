@@ -1,0 +1,48 @@
+.checkboxContent {
+  margin-bottom: 25px;
+}
+
+.realCheckbox {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.customCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 100px;
+  vertical-align: sub;
+  margin-right: 10px;
+}
+
+.customCheckbox::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-image: url("../../../img/select_task_type/point_choice.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.realCheckbox:checked + .customCheckbox::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.labelText {
+  position: absolute;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+}
+

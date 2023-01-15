@@ -38,11 +38,13 @@
 a {
   text-decoration: none;
 }
+
 input::placeholder {
   font-size: 10px;
   opacity: 0.5;
-  
+
 }
+
 /* startstyles */
 
 /* header-mobile */
@@ -286,15 +288,15 @@ input::placeholder {
 
 /* end-filled-content-block */
 
-/* login-page styles */
+/* styles-page styles */
 
 
 .login-page {
   min-height: 556px;
-  padding: 60px 0px 116px 0px ;
+  padding: 60px 0px 116px 0px;
 }
 
-.login-content{
+.form {
   min-height: 380px;
   display: flex;
   flex-direction: column;
@@ -302,39 +304,38 @@ input::placeholder {
   justify-content: space-between;
 
 }
-.page-title-login{
+
+.page-title-login {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.page-title-login__text {
 
+.page-title-login__text {
   margin-bottom: 22px;
   font-weight: 700;
   font-size: 30px;
 }
-.login-form{
+
+.login-form {
   padding-bottom: 35px;
 }
+
 .user-form {
-  font-family: 'Roboto';
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 84px;
-
-
 }
 
 .user-form__input-text {
-  font-family: 'Roboto';
   width: 256px;
   margin-bottom: 11px;
   padding: 7px 12px;
   border: 0;
   border-bottom: 1px solid rgba(67, 41, 170, 0.3);
   font-size: 12px;
-  
+
 }
 
 .user-form__input-text:last-of-type {
@@ -342,7 +343,6 @@ input::placeholder {
 }
 
 .submit-button {
-  font-family: 'Roboto';
   padding: 12px;
   width: 174px;
   border: 0;
@@ -352,12 +352,12 @@ input::placeholder {
   color: #FFFFFF;
   font-size: 12px;
 }
-.submit-button__login-margin{
+
+.submit-button__login-margin {
   margin-bottom: 30px;
 }
 
 .link {
-  font-family: 'Roboto';
   font-size: 10px;
   color: #000000;
   opacity: 0.5;
@@ -365,18 +365,17 @@ input::placeholder {
   text-decoration: underline;
 }
 
-.link:last-of-type{
-  margin-bottom: 0px;
+.link:last-of-type {
+  margin-bottom: 0;
 }
 
-.login-content__actions{
+.login-content__actions {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.error-text{
-  font-family: 'Roboto';
+.error-text {
   color: rgba(255, 123, 123, 1);
   font-size: 12px;
   font-weight: 300;
@@ -386,11 +385,11 @@ input::placeholder {
 
 }
 
-.non-visible-text{
+.non-visible-text {
   visibility: collapse;
 }
 
-/* end login-page styles end */
+/* end styles-page styles end */
 .popup {
   position: fixed;
   width: 100%;
@@ -399,12 +398,14 @@ input::placeholder {
   top: 0;
   left: 0;
 }
+
 .popop__body {
   min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .popup__content {
   display: flex;
   flex-direction: column;
@@ -418,6 +419,7 @@ input::placeholder {
   padding: 40px 25px 28px 25px;
   position: relative;
 }
+
 .popop__close {
   position: absolute;
   width: 18px;
@@ -437,12 +439,14 @@ input::placeholder {
   text-align: center;
   opacity: 0.3;
 }
+
 .popup__form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
+
 .popup__input-text {
   width: 182px;
   padding: 7px 12px;
@@ -451,23 +455,25 @@ input::placeholder {
   font-size: 12px;
 }
 
-.code-form{
+.code-form {
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.code-form__padding{
-  padding-bottom: 12px;  
+.code-form__padding {
+  padding-bottom: 12px;
 }
+
 .popup__input-one-number {
   width: 34px;
   height: 36px;
   border: 0.5px solid #000000;
   border-radius: 10px;
 }
-.password-checker{
+
+.password-checker {
   font-family: 'Roboto';
   font-size: 8px;
   line-height: 9px;
@@ -476,13 +482,14 @@ input::placeholder {
 
 }
 
-.password-checker-error{
+.password-checker-error {
   font-family: 'Roboto';
   font-size: 8px;
   line-height: 9px;
   color: rgba(255, 123, 123, 1);
   padding: 15px 0;
 }
+
 /* register-page styles */
 
 .page-title-register {

@@ -1,0 +1,11 @@
+.title {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.title__text {
+  margin: auto 0;
+  font-weight: 700;
+  font-size: 22px;
+}
+

@@ -1,0 +1,8 @@
+.notice_container {
+  position: absolute;
+  right: 15px;
+  bottom: 80px;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column-reverse;
+}
