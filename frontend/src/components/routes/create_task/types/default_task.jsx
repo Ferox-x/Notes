@@ -7,7 +7,7 @@ import Input from "../../../UX/input";
 import Button from "../../../UX/button";
 
 
-function DefaultTask({displaySet, ...props}) {
+function DefaultTask({displaySet, createNotice, ...props}) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [date, setDate] = useState('')
@@ -47,7 +47,13 @@ function DefaultTask({displaySet, ...props}) {
         />
       </div>
       <Button
-        onClick={()=> new DefaultTaskClass(title, description, date).sendTask()}
+        onClick={()=> {
+          new DefaultTaskClass(title, description, date).sendTask()
+          createNotice(Date.now(), 'Задача успешно создана.')
+          setTitle('')
+          setDate('')
+          setDescription('')
+        }}
         children={'Создать'}
       />
     </div>

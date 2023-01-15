@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 
-import AddSubtask from "../add_subtask/add_subtask";
+import AddSubtask from '../add_subtask/add_subtask'
 
-import Title from "../../../UX/title";
-import Back from "../../../UX/back";
-import Input from "../../../UX/input";
-import Button from "../../../UX/button";
-import SubTasksList from "../subTasksList/subTasksList";
+import Title from '../../../UX/title'
+import Back from '../../../UX/back'
+import Input from '../../../UX/input'
+import Button from '../../../UX/button'
+import SubTasksList from '../subTasksList/subTasksList'
 
 import {BoardTaskClass} from '../../../../actions/task_services'
 
-function BoardTask({displaySet, ...props}) {
+function BoardTask({displaySet, createNotice, ...props}) {
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
   const [subtasks, setSubtasks] = useState([])
@@ -25,10 +25,14 @@ function BoardTask({displaySet, ...props}) {
 
   function sendSubTasks() {
     new BoardTaskClass(title, date, subtasks).sendTask()
+    createNotice(Date.now(), 'Доска задач успешно создана.')
+    setTitle('')
+    setDate('')
+    setSubtasks([])
   }
 
   return (
-    <div className={"create-task-container"}>
+    <div className={'create-task-container'}>
       <div className="create-task-title">
         <Title
           title={'Личная задача'}
@@ -70,7 +74,7 @@ function BoardTask({displaySet, ...props}) {
       />
     </div>
 
-  );
+  )
 }
 
-export default BoardTask;
+export default BoardTask

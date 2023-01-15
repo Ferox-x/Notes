@@ -6,11 +6,12 @@ import Back from "../../../UX/back";
 import Delete from "../../../UX/delete_icon";
 import Edit from "../../../UX/edit_icon";
 
-function TaskCompleted({data, deadline, status, type, id, value, setValue, ...props}) {
+function TaskCompleted({createNotice, data, deadline, status, type, id, value, setValue, ...props}) {
 
   function removeTask () {
     deleteTask(id)
     setValue(value.filter(task => task.id !== id))
+    createNotice(Date.now(), 'Задача успешно удалена.')
   }
   const date = moment(deadline).format('L')
 

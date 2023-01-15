@@ -6,7 +6,7 @@ import BoardTaskFilled from './board_task_filled/board_task_filled'
 import TaskCompleted from './task_completed/task_completed'
 
 
-function Task() {
+function Task({createNotice, ...props}) {
 
   const [tasks, setTasks] = useState([])
   useEffect(() => {
@@ -27,6 +27,7 @@ function Task() {
             switch (task.type) {
             case 'default':
               return <TaskCompleted
+                createNotice={createNotice}
                 key={task.id}
                 id={task.id}
                 status={task.status}
@@ -38,6 +39,7 @@ function Task() {
               />
             case 'board':
               return <BoardTaskFilled
+                createNotice={createNotice}
                 key={task.id}
                 id={task.id}
                 status={task.status}
