@@ -54,6 +54,7 @@ function BoardTaskFilled({
         <div className="board-task-block__bottom-delete">
           <Delete/>
           <div
+            onClick={removeTask}
             className="board-task-block__bottom-info board-task-block__bottom-delete-task">
             Удалить задачу
           </div>
