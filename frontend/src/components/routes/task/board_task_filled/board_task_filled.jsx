@@ -2,6 +2,9 @@ import moment from 'moment'
 import React from 'react'
 import './board_task_filled.css'
 import {deleteTask} from '../../../../actions/task_services'
+import {
+  createNoticeServices
+} from '../../../../services/notifications_services'
 import Back from '../../../UX/back'
 import Edit from '../../../UX/edit_icon'
 import Delete from '../../../UX/delete_icon'
@@ -23,7 +26,7 @@ function BoardTaskFilled({
   function removeTask() {
     deleteTask(id)
     setValue(value.filter(task => task.id !== id))
-    createNotice(Date.now(), 'Задача успешно удалена.')
+    createNoticeServices(createNotice, 'Задача успешно удалена.', 'green')
   }
 
   const date = moment(deadline).format('L')

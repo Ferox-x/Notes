@@ -2,23 +2,20 @@
   position: relative;
   width: 220px;
   height: 56px;
-  background-color: #D1FFBC; /* green */
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.notice_div {
-  position: relative;
-  width: 220px;
-  height: 56px;
+.notice_div__red {
   background-color: #FDD1D1; /* red */
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
+
+.notice_div__green {
+  background-color: #D1FFBC; /* green */
+}
+
 
 .notice_image {
   position: absolute;

@@ -5,13 +5,19 @@ import './notice_list.css'
 
 function NoticeList(props) {
 
-    return (
-        <div className={'notice_container'}>
-            {props.notifications.map(notice =>
-                <Notice key={notice.id} id={notice.id} message={notice.message} deleteNotice={notice.deleteNotice}/>
-            )}
-        </div>
-    )
+  return (
+    <div className={'notice_container'}>
+      {props.notifications.map(notice =>
+        <Notice
+          key={notice.id}
+          id={notice.id}
+          message={notice.message}
+          deleteNotice={notice.deleteNotice}
+          color={notice.color}
+        />
+      )}
+    </div>
+  )
 }
 
 export default NoticeList

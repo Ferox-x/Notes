@@ -1,20 +1,20 @@
 import {axiosInstanceAuth} from './axios_config'
 
-export async function getTasks () {
+export async function getTasks() {
     return (await axiosInstanceAuth.get('api/v2/note/')).data
 }
 
-export function deleteTask (taskId) {
+export function deleteTask(taskId) {
     axiosInstanceAuth.delete('api/v2/note/' + taskId + '/')
 }
 
 export class BoardTaskClass {
     constructor(title, deadline, boardTasks) {
-        this.status = 1
         this.title = title
         this.deadline = deadline
-        this.type = 2
         this.boardTasks = boardTasks
+        this.type = 2
+        this.status = 1
     }
 
     #createData() {
@@ -41,11 +41,11 @@ export class BoardTaskClass {
 
 export class DefaultTaskClass {
     constructor(title, description, deadline) {
-        this.status = 1
         this.title = title
         this.description = description
         this.deadline = deadline
         this.type = 1
+        this.status = 1
     }
 
     #createData() {

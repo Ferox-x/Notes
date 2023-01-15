@@ -32,12 +32,13 @@ function Content(props) {
     setNoticeList(filtered)
   }
 
-  function createNotice(id, message) {
+  function createNotice(id, message, color) {
     setNoticeList([...noticeList,
       {
         id,
         message,
-        deleteNotice
+        deleteNotice,
+        color
       }
     ])
   }

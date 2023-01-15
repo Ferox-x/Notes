@@ -8,21 +8,22 @@ import {createNoticeServices} from '../../services/notifications_services'
 
 function AuthCheck({component, create, ...props}) {
 
-    const isAuth = useSelector(state => state.user.isAuth)
+  const isAuth = useSelector(state => state.user.isAuth)
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    useEffect(() => {
-        if (!isAuth) {
-            createNoticeServices(
-                create,
-                'Пожалуйста войдите или зарегистрируйтесь.'
-            )
-            navigate(urls.LOGIN)
-        }
-    })
+  useEffect(() => {
+    if (!isAuth) {
+      createNoticeServices(
+        create,
+        'Пожалуйста войдите или зарегистрируйтесь.',
+        'red'
+      )
+      navigate(urls.LOGIN)
+    }
+  })
 
-    return (component)
+  return (component)
 }
 
 export default AuthCheck

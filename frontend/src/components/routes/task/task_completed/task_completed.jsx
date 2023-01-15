@@ -2,6 +2,9 @@ import moment from 'moment'
 import React from 'react';
 import './task_completed.css'
 import {deleteTask} from '../../../../actions/task_services'
+import {
+  createNoticeServices
+} from '../../../../services/notifications_services'
 import Back from "../../../UX/back";
 import Delete from "../../../UX/delete_icon";
 import Edit from "../../../UX/edit_icon";
@@ -11,7 +14,7 @@ function TaskCompleted({createNotice, data, deadline, status, type, id, value, s
   function removeTask () {
     deleteTask(id)
     setValue(value.filter(task => task.id !== id))
-    createNotice(Date.now(), 'Задача успешно удалена.')
+    createNoticeServices(createNotice, 'Задача успешно удалена.', 'green')
   }
   const date = moment(deadline).format('L')
 

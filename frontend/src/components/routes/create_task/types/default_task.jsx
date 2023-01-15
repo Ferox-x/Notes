@@ -51,7 +51,7 @@ function DefaultTask({displaySet, createNotice, ...props}) {
         style={{marginLeft: '20px'}}
         onClick={()=> {
           new DefaultTaskClass(title, description, date).sendTask()
-          createNotice(Date.now(), 'Задача успешно создана.')
+          createNotice(Date.now(), 'Задача успешно создана.', 'green')
           setTitle('')
           setDate('')
           setDescription('')
