@@ -18,9 +18,10 @@ function Task() {
 
 
   return (
-    <div>
-      <Title title={'Задачи'}/>
-      {tasks.map(task =>
+    <>
+      <Title title={'Задачи'} style={{padding: '20px'}}/>
+      <div className="tasks">
+        {tasks.map(task =>
         <TaskCompleted
           status={task.status}
           type={task.type}
@@ -28,7 +29,9 @@ function Task() {
           data={task.data}
         />
       )}
-    </div>
+      </div>
+
+    </>
   )
 }
 
